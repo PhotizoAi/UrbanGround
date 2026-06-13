@@ -1,0 +1,159 @@
+/* src/shared/components/chat/MobileChatSidebar/styles/index.module.css */
+
+.mobileSidebar {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: var(--glass-background);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-top: 1px solid var(--primary-alpha-8);
+  box-shadow:
+    0 -4px 20px rgba(139, 92, 246, 0.04),
+    0 -2px 8px rgba(0, 0, 0, 0.04);
+  z-index: 100; /* Reduced from 1000 to be below modals */
+  transition: height 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  pointer-events: auto; /* Re-enable clicks for sidebar */
+}
+
+.expanded {
+  height: 70vh; /* Take most of screen when expanded */
+  max-height: 500px;
+}
+
+.collapsed {
+  height: 60px; /* Compact header only */
+}
+
+.header {
+  padding: var(--space-md) var(--space-lg);
+  border-bottom: 1px solid var(--primary-alpha-8);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  cursor: pointer;
+  background: var(--glass-background);
+  transition: background 0.2s ease;
+  flex-shrink: 0;
+}
+
+.header:hover {
+  background: rgba(255, 255, 255, 0.9);
+}
+
+.headerContent {
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+  color: var(--color-text-secondary);
+}
+
+.unreadBadge {
+  background: var(--color-primary);
+  color: white;
+  border-radius: 50%;
+  width: 20px;
+  height: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: var(--text-xs);
+  font-weight: 600;
+}
+
+.toggleButton {
+  transition: all 0.2s ease;
+}
+
+.toggleButton:hover {
+  background: var(--primary-alpha-8) !important;
+  color: var(--color-primary) !important;
+}
+
+.threadListContainer {
+  flex: 1;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+.tabsContainer {
+  padding: var(--space-xs) var(--space-md);
+  border-bottom: 1px solid var(--primary-alpha-8);
+  background: rgba(255, 255, 255, 0.5);
+  flex-shrink: 0;
+}
+
+.tabContent {
+  flex: 1;
+  overflow-y: auto;
+  padding: var(--space-xs) 0;
+  min-height: 0;
+}
+
+.loadingState {
+  padding: var(--space-lg);
+  text-align: center;
+}
+
+/* Scroll styling for tab content */
+.tabContent::-webkit-scrollbar {
+  width: 4px;
+}
+
+.tabContent::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.tabContent::-webkit-scrollbar-thumb {
+  background: rgba(139, 92, 246, 0.2);
+  border-radius: var(--radius-sm);
+}
+
+.tabContent::-webkit-scrollbar-thumb:hover {
+  background: rgba(139, 92, 246, 0.3);
+}
+
+/* Mobile-specific tab styling */
+@media (max-width: 768px) {
+  .tabsContainer :global(.mantine-Tabs-list) {
+    display: flex;
+    flex-wrap: nowrap;
+    gap: 0.25rem;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  /* Single tab list - don't stretch */
+  .singleTabList :global(.mantine-Tabs-tab) {
+    font-size: 0.75rem;
+    padding: 0.35rem 0.5rem;
+    min-width: auto;
+    flex: 0 0 auto;
+    white-space: nowrap;
+    gap: 0.25rem !important;
+  }
+
+  /* Multiple tabs list - stretch to fill */
+  .multipleTabsList :global(.mantine-Tabs-tab) {
+    font-size: 0.75rem;
+    padding: 0.35rem 0.5rem;
+    min-width: auto;
+    flex: 1;
+    white-space: nowrap;
+    gap: 0.25rem !important;
+  }
+
+  .tabsContainer :global(.mantine-Tabs-tab) svg {
+    width: 12px;
+    height: 12px;
+  }
+
+  /* Hide scrollbar but keep functionality */
+  .tabsContainer :global(.mantine-Tabs-list)::-webkit-scrollbar {
+    display: none;
+  }
+}

@@ -1,0 +1,107 @@
+/* Avatar Styling */
+.userAvatar {
+  border: 2px solid rgba(255, 255, 255, 0.8);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Role Badge Compositions */
+.adminBadge {
+  composes: badge-base badge-admin from '../../../../styles/design-tokens.css' !important;
+}
+
+.organizerBadge {
+  composes: badge-base badge-organizer from '../../../../styles/design-tokens.css' !important;
+}
+
+.speakerBadge {
+  composes: badge-base badge-speaker from '../../../../styles/design-tokens.css' !important;
+}
+
+.attendeeBadge {
+  composes: badge-base badge-attendee from '../../../../styles/design-tokens.css' !important;
+}
+
+/* Fallback badge for unknown roles */
+.roleBadge {
+  composes: badge-base badge-neutral from '../../../../styles/design-tokens.css' !important;
+}
+
+/* User Info Group */
+.userInfo {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.userName {
+  font-weight: 500;
+  color: #1e293b;
+}
+
+.userEmail {
+  color: #64748b;
+  font-size: 0.875rem;
+}
+
+/* Company Info */
+.companyInfo {
+  color: #64748b;
+  font-size: 0.875rem;
+  line-height: 1.4;
+}
+
+.companyName {
+  font-weight: 500;
+  color: #475569;
+}
+
+.companyTitle {
+  color: #64748b;
+}
+
+/* Date Text */
+.dateText {
+  color: #94a3b8;
+  font-size: 0.875rem;
+}
+
+/* Menu Dropdown Styling */
+.menuDropdown {
+  background: rgba(255, 255, 255, 0.8);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.8);
+  box-shadow: 0 4px 20px rgba(139, 92, 246, 0.08);
+  border-radius: 6px;
+}
+
+.menuItem {
+  color: #475569;
+  font-size: 0.875rem;
+  transition: all 0.2s ease;
+}
+
+.menuItem:hover {
+  background: rgba(139, 92, 246, 0.04);
+  color: #8b5cf6;
+}
+
+.menuItemDanger {
+  color: #dc2626;
+  font-size: 0.875rem;
+  transition: all 0.2s ease;
+}
+
+.menuItemDanger:hover {
+  background: rgba(220, 38, 38, 0.04);
+  color: #dc2626;
+}
+
+/* Action Icon Styling */
+.actionIcon {
+  transition: all 0.2s ease;
+}
+
+.actionIcon:hover {
+  background: rgba(139, 92, 246, 0.08);
+}

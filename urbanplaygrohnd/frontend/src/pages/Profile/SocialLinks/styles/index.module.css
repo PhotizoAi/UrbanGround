@@ -1,0 +1,43 @@
+.profileSection {
+  composes: section-container from '../../../../styles/design-tokens.css';
+  margin-top: var(--space-xl);
+}
+
+.sectionTitle {
+  composes: section-title from '../../../../styles/design-tokens.css';
+}
+
+.socialLinks {
+  display: flex;
+  gap: var(--space-md);
+  flex-wrap: wrap;
+}
+
+.socialLink {
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+  padding: var(--space-sm) var(--space-md);
+  background: var(--color-background-glass);
+  border: 1px solid var(--primary-alpha-15);
+  border-radius: var(--radius-md);
+  color: var(--color-text-secondary);
+  text-decoration: none;
+  font-size: clamp(var(--text-xs), 2vw, 0.9rem);
+  transition: all 0.2s ease;
+}
+
+.socialLink:hover {
+  background: var(--primary-alpha-8);
+  border-color: rgba(139, 92, 246, 0.2);
+  color: var(--color-primary);
+  transform: translateY(-1px);
+}
+
+.socialIcon {
+  width: 20px;
+  height: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}

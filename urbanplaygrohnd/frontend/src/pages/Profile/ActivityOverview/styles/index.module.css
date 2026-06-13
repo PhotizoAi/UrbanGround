@@ -1,0 +1,59 @@
+.profileSection {
+  composes: section-container from '../../../../styles/design-tokens.css';
+}
+
+.sectionTitle {
+  composes: section-title from '../../../../styles/design-tokens.css';
+}
+
+.activityGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--space-md);
+}
+
+.activityCard {
+  background: var(--color-background-glass);
+  border-radius: var(--radius-md);
+  padding: var(--space-lg);
+  text-align: center;
+  border: 1px solid rgba(255, 255, 255, 0.9);
+  box-shadow: var(--shadow-sm);
+  transition: all 0.2s ease;
+}
+
+.activityCard:hover {
+  background: rgba(255, 255, 255, 0.9);
+  box-shadow: var(--shadow-md);
+}
+
+.activityNumber {
+  font-size: clamp(1.5rem, 3vw, 1.75rem);
+  font-weight: 700;
+  color: var(--color-primary);
+  margin-bottom: var(--space-xs);
+}
+
+.activityLabel {
+  color: var(--color-text-secondary);
+  font-size: clamp(var(--text-xs), 2vw, 0.85rem);
+  font-weight: 500;
+}
+
+.loadingState {
+  display: flex;
+  justify-content: center;
+  padding: var(--space-xl);
+}
+
+@media (max-width: 1024px) {
+  .activityGrid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .activityGrid {
+    grid-template-columns: 1fr;
+  }
+}

@@ -1,0 +1,113 @@
+/* Members List */
+.membersList {
+  width: 100%;
+}
+
+/* Table Container - Desktop */
+.tableContainer {
+  background: rgba(255, 255, 255, 0.5);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  border: 1px solid var(--primary-alpha-8);
+  display: block;
+}
+
+/* Members Table */
+.membersTable {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.membersTable thead {
+  background: var(--primary-alpha-4);
+  border-bottom: 1px solid var(--primary-alpha-8);
+}
+
+.membersTable th {
+  padding: clamp(0.75rem, 2vw, 1rem) clamp(1rem, 3vw, 1.5rem);
+  text-align: left;
+  font-size: clamp(var(--text-xs), 1.8vw, var(--text-sm));
+  font-weight: 600;
+  color: var(--color-text-secondary);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.membersTable tbody tr {
+  border-bottom: 1px solid var(--primary-alpha-4);
+  transition: background-color 0.2s ease;
+}
+
+.membersTable tbody tr:hover {
+  background: var(--primary-alpha-2);
+}
+
+.membersTable tbody tr:last-child {
+  border-bottom: none;
+}
+
+/* Member Cards - Mobile */
+.memberCards {
+  display: none;
+  flex-direction: column;
+  gap: clamp(0.75rem, 2vw, 1rem);
+}
+
+/* Center Column */
+.centerColumn {
+  text-align: center !important;
+}
+
+/* Empty State */
+.emptyState {
+  composes: empty-state from '../../../../../../styles/design-tokens.css';
+  min-height: 300px;
+}
+
+.emptyContent {
+  text-align: center;
+  padding: clamp(var(--space-lg), 4vw, var(--space-xl));
+}
+
+/* Pagination */
+.paginationWrapper {
+  display: flex;
+  justify-content: center;
+  margin-top: clamp(1.5rem, 3vw, 2rem);
+  padding-top: clamp(1rem, 2vw, 1.5rem);
+  border-top: 1px solid var(--primary-alpha-8);
+}
+
+.pagination {
+  --mantine-color-primary: var(--color-primary);
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+  .membersTable th,
+  .membersTable td {
+    padding: 0.75rem 1rem;
+  }
+}
+
+@media (max-width: 768px) {
+  /* Hide table, show cards */
+  .tableContainer {
+    display: none;
+  }
+
+  .memberCards {
+    display: flex;
+  }
+
+  .paginationWrapper {
+    margin-top: 1.5rem;
+    padding-top: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .emptyContent {
+    padding: var(--space-lg);
+  }
+}

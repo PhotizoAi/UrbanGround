@@ -1,0 +1,554 @@
+/* Page Container - Full viewport */
+.container {
+  min-height: 100vh;
+  background: rgba(251, 250, 255, 1);
+  position: relative;
+  overflow-x: hidden;
+}
+
+/* Background Organic Shapes */
+.bgShape1 {
+  position: fixed;
+  width: 400px;
+  height: 400px;
+  background: linear-gradient(135deg, #8b5cf6, #a855f7);
+  border-radius: 63% 37% 54% 46% / 55% 48% 52% 45%;
+  top: 100px;
+  right: -200px;
+  opacity: 0.04;
+  animation: float 20s ease-in-out infinite;
+  z-index: 1;
+  pointer-events: none;
+}
+
+.bgShape2 {
+  position: fixed;
+  width: 350px;
+  height: 370px;
+  background: linear-gradient(45deg, #06b6d4, #0ea5e9);
+  border-radius: 42% 58% 70% 30% / 45% 45% 55% 55%;
+  bottom: 120px;
+  left: -175px;
+  opacity: 0.03;
+  animation: float 25s ease-in-out infinite reverse;
+  z-index: 1;
+  pointer-events: none;
+}
+
+.bgShape3 {
+  position: fixed;
+  width: 300px;
+  height: 300px;
+  background: linear-gradient(90deg, #f59e0b, #ffd93d);
+  border-radius: 50% 50% 33% 67% / 60% 30% 70% 40%;
+  top: 50%;
+  right: 20%;
+  opacity: 0.03;
+  animation: float 30s ease-in-out infinite;
+  animation-delay: -10s;
+  z-index: 1;
+  pointer-events: none;
+}
+
+@keyframes float {
+  0%,
+  100% {
+    transform: translateY(0px) rotate(0deg) scale(1);
+  }
+  33% {
+    transform: translateY(-20px) rotate(2deg) scale(1.02);
+  }
+  66% {
+    transform: translateY(15px) rotate(-1deg) scale(0.98);
+  }
+}
+
+/* Grid Layout Container */
+.layoutGrid {
+  position: relative;
+  z-index: 10;
+  display: grid;
+  grid-template-columns: 1fr 370px;
+  gap: 24px;
+  min-height: calc(100vh - 80px);
+  transition:
+    grid-template-columns 0.3s cubic-bezier(0.4, 0, 0.2, 1),
+    gap 0.3s ease;
+}
+
+/* When chat is closed, shrink the column to 0 */
+.layoutGrid.chatClosed {
+  grid-template-columns: 1fr 0;
+  gap: 0;
+}
+
+/* Main Content Wrapper */
+.contentWrapper {
+  min-width: 0; /* Prevent grid blowout */
+  max-width: 1200px; /* Limit content width */
+  margin: 0 auto;
+  padding: 2rem;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 3rem; /* Gap between sections like sponsors page */
+}
+
+/* Section 1 - Video Section (transparent wrapper - video floats on background) */
+.videoSection {
+  background: transparent; /* Remove white glass - let background show through */
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
+  border-radius: 12px;
+  padding: 0; /* Remove padding - let container handle sizing */
+  border: none;
+  box-shadow: none;
+  position: relative;
+  z-index: 10;
+}
+
+/* Inner video container - stronger glass effect for floating appearance */
+.videoContainer {
+  background: rgba(255, 255, 255, 0.8); /* Stronger white glass background */
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border-radius: 12px; /* Match aboutSection radius */
+  overflow: hidden;
+  position: relative;
+  width: 100%;
+  border: 1px solid rgba(255, 255, 255, 0.8); /* Match aboutSection border */
+  box-shadow: 0 4px 20px rgba(139, 92, 246, 0.04); /* Match aboutSection shadow */
+  padding: 2rem; /* Move padding here to match aboutSection */
+  container-type: inline-size; /* Enable container queries */
+}
+
+/* Section header within video container */
+.sectionHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 0 1.5rem 0; /* No horizontal padding, just bottom */
+  background: transparent; /* Remove separate background */
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
+  border-bottom: 1px solid rgba(139, 92, 246, 0.08);
+  margin: -2rem -2rem 0 -2rem; /* Negative margins to extend to container edges */
+  padding: 2rem 0.75rem 1.5rem 0.75rem !important; /* Reduced horizontal padding to 0.75rem */
+}
+
+/* Video wrapper within the container */
+.videoWrapper {
+  width: calc(100% + 4rem); /* Extend to edges of container */
+  margin: 0 -2rem; /* Pull out to edges */
+  position: relative;
+  background: rgba(0, 0, 0, 0.9); /* Dark background for video */
+  padding: 0;
+}
+
+/* Video footer for session details */
+.videoFooter {
+  background: transparent; /* Remove separate background */
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
+  border-top: 1px solid rgba(139, 92, 246, 0.08);
+  margin: 0 -2rem -2rem -2rem; /* Negative margins to extend to container edges */
+  padding: 0.75rem 0.75rem 1rem 0.75rem !important; /* Reduced horizontal padding to 0.75rem */
+}
+
+.title {
+  font-size: clamp(1.25rem, 3vw, 1.75rem); /* Responsive sizing based on viewport/container */
+  font-weight: 600;
+  color: #1e293b; /* Dark text for white background */
+  margin-bottom: 0;
+  letter-spacing: -0.02em;
+  line-height: 1.3;
+}
+
+.sectionTitle {
+  font-size: clamp(1.25rem, 2.5vw, 1.5rem); /* Responsive sizing */
+  font-weight: 600;
+  color: #1e293b;
+  margin: 0 0 0.5rem 0 !important; /* Even tighter bottom margin */
+  letter-spacing: -0.02em;
+}
+
+.typeTag {
+  display: inline-flex;
+  align-items: center;
+  padding: 4px 12px;
+  border-radius: 4px;
+  font-size: 12px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  background-color: var(--mantine-color-gray-1);
+  color: var(--mantine-color-gray-7);
+}
+
+/* Session type colors matching agenda */
+.keynote {
+  background-color: var(--mantine-color-grape-1);
+  color: var(--mantine-color-grape-7);
+}
+
+.panel {
+  background-color: var(--mantine-color-blue-1);
+  color: var(--mantine-color-blue-7);
+}
+
+.workshop {
+  background-color: var(--mantine-color-teal-1);
+  color: var(--mantine-color-teal-7);
+}
+
+.presentation {
+  background-color: var(--mantine-color-orange-1);
+  color: var(--mantine-color-orange-7);
+}
+
+.qa,
+.q_a {
+  background-color: var(--mantine-color-pink-1);
+  color: var(--mantine-color-pink-7);
+}
+
+.networking {
+  background-color: var(--mantine-color-green-1);
+  color: var(--mantine-color-green-7);
+}
+
+.liveBadge {
+  background: rgba(220, 38, 38, 0.1); /* Light red background for white bg */
+  color: #dc2626; /* Standard red for white background */
+  padding: 0.5rem 1rem;
+  border-radius: 6px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  border: 1px solid rgba(220, 38, 38, 0.2);
+  animation: pulse 2s ease-in-out infinite;
+}
+
+.liveBadge::before {
+  content: '';
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #dc2626;
+  flex-shrink: 0;
+}
+
+@keyframes pulse {
+  0% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.8;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+/* Section 2 - About Section (separate glass container) */
+.aboutSection {
+  background: rgba(255, 255, 255, 0.8); /* Opaque white glass matching video section */
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  padding: 2rem;
+  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.8);
+  box-shadow: 0 4px 20px rgba(139, 92, 246, 0.04);
+  position: relative;
+  z-index: 10;
+  display: flex;
+  flex-direction: column;
+  gap: 0; /* No gap - let individual elements handle their own spacing */
+  container-type: inline-size; /* Enable container queries */
+}
+
+.description {
+  line-height: 1.6;
+  color: #64748b;
+  font-size: 0.95rem;
+}
+
+/* Ghost spacer element - maintains grid space for chat */
+.chatGhost {
+  position: relative;
+  width: 370px;
+  min-width: 0;
+  transition:
+    opacity 0.3s ease,
+    visibility 0.3s ease,
+    width 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* When chat is closed, collapse the ghost element */
+.layoutGrid.chatClosed .chatGhost {
+  width: 0;
+  opacity: 0;
+  visibility: hidden;
+}
+
+/* Fixed chat container - outside of grid */
+.fixedChatContainer {
+  position: fixed;
+  top: 80px; /* Right at bottom of nav header */
+  right: 0; /* Flush with viewport edge */
+  bottom: calc(2rem + 25px); /* 25px higher than before */
+  width: 370px;
+  z-index: 50; /* Above content but below floating button */
+  pointer-events: none; /* Allow clicks to pass through container */
+}
+
+.fixedChatContainer > * {
+  pointer-events: auto; /* But allow clicks on chat itself */
+}
+
+/* Chat animation is handled by the SessionChat component itself */
+
+/* Floating Chat Button */
+.floatingChatButton {
+  position: fixed; /* Fixed position to float over content */
+  top: 100px; /* Below header */
+  right: 2rem;
+  background: #8b5cf6;
+  color: white;
+  width: 56px; /* Back to original size since not constrained */
+  height: 56px;
+  border-radius: 28px;
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 12px rgba(139, 92, 246, 0.25);
+  transition: all 0.2s ease;
+  cursor: pointer;
+  z-index: 100; /* High z-index to float above everything */
+}
+
+.floatingChatButton:hover {
+  background: #7c3aed;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(139, 92, 246, 0.3);
+}
+
+/* Container queries for responsive title and padding */
+@container (min-width: 768px) {
+  /* Add more padding when container is wide */
+  .sectionHeader {
+    padding: 2rem 1.5rem 1.5rem 1.5rem !important;
+  }
+
+  .videoFooter {
+    padding: 0.75rem 1.5rem 1rem 1.5rem !important;
+  }
+}
+
+/* About section responsive adjustments */
+@container (max-width: 800px) {
+  .aboutSection {
+    padding: 1.5rem !important;
+  }
+
+  .sectionTitle {
+    font-size: 1.375rem !important;
+    margin-bottom: 0.5rem !important;
+  }
+}
+
+@container (max-width: 600px) {
+  .aboutSection {
+    padding: 1.25rem !important;
+  }
+
+  .sectionTitle {
+    font-size: 1.25rem !important;
+  }
+}
+
+@container (max-width: 800px) {
+  .title {
+    font-size: 1.5rem !important;
+  }
+}
+
+@container (max-width: 600px) {
+  .title {
+    font-size: 1.25rem !important;
+  }
+}
+
+@container (max-width: 400px) {
+  .title {
+    font-size: 1.125rem !important;
+  }
+}
+
+/* Responsive design */
+@media (max-width: 1400px) {
+  .layoutGrid {
+    grid-template-columns: 1fr 350px;
+  }
+
+  .layoutGrid.chatClosed {
+    grid-template-columns: 1fr 0;
+  }
+
+  .videoContainer {
+    max-width: 800px; /* Slightly smaller on medium screens */
+  }
+
+  .chatGhost {
+    width: 350px;
+  }
+
+  .fixedChatContainer {
+    width: 350px;
+  }
+}
+
+@media (max-width: 1200px) {
+  .layoutGrid {
+    grid-template-columns: 1fr 320px;
+  }
+
+  .layoutGrid.chatClosed {
+    grid-template-columns: 1fr 0;
+  }
+
+  .videoContainer {
+    max-width: 700px; /* Even smaller */
+  }
+
+  .chatGhost {
+    width: 320px;
+  }
+
+  .fixedChatContainer {
+    width: 320px;
+  }
+}
+
+@media (max-width: 1024px) {
+  /* Single column layout on smaller screens */
+  .layoutGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .contentWrapper {
+    padding: 1.5rem;
+  }
+
+  .chatGhost,
+  .fixedChatContainer {
+    display: none;
+  }
+
+  .videoSection {
+    padding: 1.5rem; /* Reduce padding on tablets */
+  }
+
+  .videoContainer {
+    max-width: 100%; /* Full width on tablets */
+  }
+}
+
+@media (max-width: 768px) {
+  .contentWrapper {
+    padding: clamp(var(--space-sm), 3vw, var(--space-md));
+    gap: clamp(var(--space-lg), 4vw, 2rem);
+    max-width: 100%;
+  }
+
+  .videoSection {
+    padding: 0; /* Keep at 0 for consistent width */
+  }
+
+  .videoContainer {
+    padding: clamp(var(--space-md), 3vw, var(--space-lg));
+    border-radius: var(--radius-lg);
+  }
+
+  .aboutSection {
+    padding: clamp(var(--space-md), 3vw, var(--space-lg));
+    border-radius: var(--radius-lg);
+  }
+
+  .sectionTitle {
+    font-size: clamp(1.125rem, 4vw, 1.25rem);
+    margin-bottom: clamp(var(--space-md), 3vw, var(--space-lg));
+  }
+
+  .title {
+    font-size: clamp(1.25rem, 5vw, 1.75rem);
+  }
+
+  /* Hide background shapes on mobile to improve performance */
+  .bgShape1,
+  .bgShape2,
+  .bgShape3 {
+    display: none;
+  }
+
+  .sectionHeader {
+    margin: calc(-1 * clamp(var(--space-md), 3vw, var(--space-lg)))
+      calc(-1 * clamp(var(--space-md), 3vw, var(--space-lg))) 0
+      calc(-1 * clamp(var(--space-md), 3vw, var(--space-lg)));
+    padding: clamp(var(--space-md), 3vw, var(--space-lg))
+      clamp(var(--space-md), 3vw, var(--space-lg)) clamp(var(--space-sm), 2vw, var(--space-md))
+      clamp(var(--space-md), 3vw, var(--space-lg));
+  }
+
+  .videoWrapper {
+    width: calc(100% + 2 * clamp(var(--space-md), 3vw, var(--space-lg)));
+    margin: 0 calc(-1 * clamp(var(--space-md), 3vw, var(--space-lg)));
+  }
+
+  .videoFooter {
+    margin: 0 calc(-1 * clamp(var(--space-md), 3vw, var(--space-lg)))
+      calc(-1 * clamp(var(--space-md), 3vw, var(--space-lg)))
+      calc(-1 * clamp(var(--space-md), 3vw, var(--space-lg)));
+    padding: clamp(var(--space-sm), 2vw, var(--space-md))
+      clamp(var(--space-md), 3vw, var(--space-lg)) clamp(var(--space-md), 3vw, var(--space-lg))
+      clamp(var(--space-md), 3vw, var(--space-lg));
+  }
+
+  /* Floating chat button positioning on mobile */
+  .floatingChatButton {
+    right: 1rem;
+    bottom: 2rem;
+    top: auto;
+    width: 48px;
+    height: 48px;
+    border-radius: 24px;
+  }
+}
+
+/* Very small mobile adjustments */
+@media (max-width: 480px) {
+  .contentWrapper {
+    padding: var(--space-sm);
+    gap: var(--space-lg);
+  }
+
+  .videoContainer,
+  .aboutSection {
+    padding: var(--space-md);
+    border-radius: var(--radius-md);
+  }
+
+  .sectionTitle {
+    font-size: 1.125rem;
+  }
+
+  .title {
+    font-size: 1.25rem;
+    line-height: 1.3;
+  }
+}

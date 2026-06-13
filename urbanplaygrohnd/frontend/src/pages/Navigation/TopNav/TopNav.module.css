@@ -1,0 +1,129 @@
+/* Import Nunito font with block to prevent FOUC */
+/* Nunito is now self-hosted in /public/fonts/fonts.css */
+
+.navbar {
+  width: 100%;
+  height: 60px; /* Match AppShell header height */
+  background: rgba(139, 92, 246, 0.9); /* Using our brand purple - will replace with design token */
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  display: flex;
+  align-items: center;
+  z-index: 100;
+}
+
+.navContent {
+  max-width: 1400px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  padding: 0 clamp(var(--space-md), 4vw, var(--space-xl));
+}
+
+.navLeft {
+  flex: 1;
+  display: flex;
+  align-items: center;
+}
+
+.navRight {
+  flex: 1;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  gap: var(--space-md);
+}
+
+.atriaTitle {
+  font-family:
+    'Nunito',
+    system-ui,
+    -apple-system,
+    sans-serif;
+  font-size: clamp(var(--text-lg), 3.5vw, 1.75rem);
+  font-weight: 300;
+  color: #ffffff;
+  letter-spacing: -0.02em;
+  text-decoration: none;
+  cursor: pointer;
+  transition: opacity 0.2s ease;
+}
+
+.atriaTitle:hover {
+  opacity: 0.9;
+}
+
+/* Burger menu wrapper */
+.burgerWrapper {
+  position: fixed;
+  left: clamp(var(--space-md), 4vw, var(--space-xl));
+  z-index: 101;
+}
+
+/* Special case for navbar with burger in event */
+.navbarWithBurger .navContent {
+  max-width: none; /* Remove max-width constraint */
+  padding: 0 clamp(var(--space-md), 4vw, var(--space-xl));
+}
+
+/* Style the burger button to be white */
+.burgerWrapper :global(.mantine-Burger) {
+  color: #ffffff;
+}
+
+/* Responsive breakpoints */
+/* Mobile (iPhone SE: 375px, iPhone 15 Pro: 393px) */
+@media (max-width: 480px) {
+  .navContent {
+    padding: 0 var(--space-md);
+  }
+
+  .burgerWrapper {
+    left: var(--space-md);
+  }
+
+  .navbarWithBurger .navContent {
+    max-width: none;
+    padding: 0 var(--space-md);
+  }
+
+  .atriaTitle {
+    font-size: 1.375rem; /* 22px - slightly bigger on mobile for better readability */
+  }
+}
+
+/* Laptop (MacBook Air M1: ~1440px width, but we'll target smaller laptop sizes) */
+@media (min-width: 481px) and (max-width: 1280px) {
+  .navContent {
+    padding: 0 var(--space-lg);
+  }
+
+  .burgerWrapper {
+    left: var(--space-lg);
+  }
+
+  .navbarWithBurger .navContent {
+    max-width: none;
+    padding: 0 var(--space-lg);
+  }
+}
+
+/* Desktop */
+@media (min-width: 1281px) {
+  .navContent {
+    padding: 0 var(--space-xl);
+  }
+
+  .burgerWrapper {
+    left: var(--space-xl);
+  }
+
+  .navbarWithBurger .navContent {
+    max-width: none;
+    padding: 0 var(--space-xl);
+  }
+}

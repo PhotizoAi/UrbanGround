@@ -1,0 +1,192 @@
+.cardConference {
+  display: block;
+  padding: 32px;
+  border-radius: 12px;
+  text-decoration: none;
+  color: inherit;
+  transition: all 0.3s ease;
+  background: white;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  position: relative;
+  overflow: hidden;
+  min-height: 120px;
+}
+
+.cardConference::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(135deg, var(--card-gradient));
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.cardConference:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 20px rgba(156, 66, 245, 0.15);
+}
+
+.cardConference:hover::before {
+  opacity: 1;
+}
+
+.cardSingleDay {
+  display: block;
+  padding: 32px;
+  border-radius: 12px;
+  text-decoration: none;
+  color: inherit;
+  transition: all 0.3s ease;
+  background: white;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  position: relative;
+  overflow: hidden;
+  min-height: 120px;
+}
+
+.cardSingleDay::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(135deg, var(--card-gradient));
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.cardSingleDay:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 20px rgba(67, 248, 209, 0.15);
+}
+
+.cardSingleDay:hover::before {
+  opacity: 1;
+}
+
+.actionButtons {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  display: flex;
+  gap: 8px;
+  opacity: 0;
+  transition: all 0.3s ease;
+  z-index: 2;
+}
+
+.cardConference:hover .actionButtons,
+.cardSingleDay:hover .actionButtons {
+  opacity: 1;
+}
+
+.editButton,
+.deleteButton {
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  color: #666;
+  padding: 8px;
+  border-radius: 4px;
+  transition: all 0.3s ease;
+}
+
+.editButton:hover {
+  color: var(--card-gradient);
+  background: rgba(0, 0, 0, 0.05);
+}
+
+.deleteButton:hover {
+  color: #ff0000;
+  background: rgba(255, 0, 0, 0.1);
+}
+
+.title {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: #333;
+}
+
+.company {
+  color: #666;
+  margin-bottom: 8px;
+}
+
+.date {
+  color: #666;
+  font-size: 0.9rem;
+}
+
+.setupBadge {
+  position: absolute;
+  bottom: 12px;
+  right: 12px;
+}
+
+/* New styles for non-clickable cards */
+.notClickable {
+  opacity: 0.85;
+  pointer-events: none;
+}
+
+.notClickable:hover {
+  transform: none;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.notClickable:hover::before {
+  opacity: 0;
+}
+
+/* Container and grid styles */
+.container {
+  padding: 24px 0;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 24px;
+}
+
+/* Empty state styles */
+.emptyState {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 200px;
+  text-align: center;
+  padding: 48px;
+  background: rgba(0, 0, 0, 0.02);
+  border-radius: 12px;
+  margin: 24px 0;
+}
+
+/* Button styles */
+.button {
+  transition: all 0.2s ease;
+}
+
+.button:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--mantine-shadow-md);
+}
+
+.button:active {
+  transform: translateY(0);
+}
+
+/* Loading state styles */
+.loadingState {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 200px;
+  text-align: center;
+}

@@ -1,0 +1,81 @@
+.chatContainer {
+  width: 100%; /* Full width of container */
+  height: 100%;
+  position: relative; /* Changed from absolute since parent is now fixed */
+  overflow: hidden;
+  transition:
+    transform 0.3s cubic-bezier(0.4, 0, 0.2, 1),
+    opacity 0.3s ease;
+}
+
+.chatContainer.chatClosed {
+  transform: translateX(100%);
+  opacity: 0;
+  pointer-events: none;
+}
+
+.chatSidebar {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  background: rgba(
+    255,
+    255,
+    255,
+    0.6
+  ) !important; /* White glass with more transparency for slide-in */
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border-radius: 8px;
+  border: 1px solid rgba(255, 255, 255, 0.8);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.08);
+  overflow: hidden;
+}
+
+/* Override Mantine Card default styles */
+.chatSidebar[data-with-border] {
+  border: 1px solid rgba(255, 255, 255, 0.8) !important;
+}
+
+.chatSidebar:global(.mantine-Card-root) {
+  background: rgba(255, 255, 255, 0.6) !important;
+}
+
+.floatingChatButton {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  background: var(--mantine-color-blue-6);
+  color: white;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  transition: all 0.2s ease;
+}
+
+.floatingChatButton:hover {
+  background: var(--mantine-color-blue-7);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2);
+}
+
+.chatContent {
+  flex: 1;
+  padding: var(--mantine-spacing-md);
+  overflow-y: auto;
+}
+
+.placeholder {
+  height: 100%;
+}
+
+@media (max-width: 1200px) {
+  .chatContainer {
+    width: 100%; /* Responsive to parent container */
+  }
+}
+
+@media (max-width: 1024px) {
+  .chatContainer {
+    display: none;
+  }
+}

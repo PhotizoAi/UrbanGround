@@ -1,0 +1,9 @@
+.chatContainer {
+  display: grid;
+  grid-template-rows: minmax(0, 1fr) auto;
+  height: 100%;
+  width: 100%;
+  position: relative;
+  overflow: hidden;
+  min-height: 0; /* Allow flex shrinking */
+}

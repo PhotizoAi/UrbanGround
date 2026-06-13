@@ -1,0 +1,99 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <!-- Remove the default Vite favicon -->
+    <!-- <link rel="icon" type="image/svg+xml" href="/vite.svg" /> -->
+
+    <!-- Favicon links -->
+    <link rel="apple-touch-icon" sizes="180x180" href="/favicon/apple-touch-icon.png" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon/favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon/favicon-16x16.png" />
+    <link rel="manifest" href="/favicon/site.webmanifest" />
+    <link rel="shortcut icon" href="/favicon/favicon.ico" />
+    <meta name="theme-color" content="#8B5CF6" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- Self-hosted fonts for better performance -->
+    <link rel="preload" href="/fonts/abeezee-latin.woff2" as="font" type="font/woff2" crossorigin />
+    <link
+      rel="preload"
+      href="/fonts/mplus2-700-latin.woff2"
+      as="font"
+      type="font/woff2"
+      crossorigin
+    />
+    <link rel="stylesheet" href="/fonts/fonts.css" />
+
+    <!-- Primary Meta Tags -->
+    <meta name="title" content="uplayground | Free Open Source Event Management & Networking" />
+    <meta
+      name="description"
+      content="Free, open source event management platform with real-time networking, attendee engagement, and comprehensive tools for virtual and hybrid events."
+    />
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://atria.gg/" />
+    <meta property="og:site_name" content="uplayground" />
+    <meta property="og:title" content="uplayground | Free Open Source Event Management & Networking" />
+    <meta
+      property="og:description"
+      content="Free, open source event management platform with real-time networking, attendee engagement, and comprehensive tools for virtual and hybrid events."
+    />
+    <meta property="og:image" content="https://atria.gg/images/og-image.png" />
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:url" content="https://atria.gg/" />
+    <meta name="twitter:title" content="uplayground | Free Open Source Event Management & Networking" />
+    <meta
+      name="twitter:description"
+      content="Free, open source event management platform with real-time networking, attendee engagement, and comprehensive tools for virtual and hybrid events."
+    />
+    <meta name="twitter:image" content="https://atria.gg/images/og-image.png" />
+
+    <title>uplayground | Free Open Source Event Management & Networking</title>
+
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://atria.gg/" />
+
+    <!-- JSON-LD Structured Data for rich search results -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "SoftwareApplication",
+        "name": "uplayground",
+        "applicationCategory": "BusinessApplication",
+        "offers": {
+          "@type": "Offer",
+          "price": "0",
+          "priceCurrency": "USD"
+        },
+        "description": "Free, open source event management platform with real-time networking, attendee engagement, and comprehensive tools for virtual and hybrid events.",
+        "operatingSystem": "Web",
+        "url": "https://atria.gg",
+        "author": {
+          "@type": "Organization",
+          "name": "uplayground"
+        },
+        "featureList": [
+          "Event management",
+          "Real-time networking",
+          "Attendee engagement",
+          "Virtual and hybrid event support",
+          "Chat and messaging",
+          "Session scheduling",
+          "Sponsor management"
+        ]
+      }
+    </script>
+
+    <!-- Plausible Analytics loaded by React after hydration to prevent double-counting -->
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>

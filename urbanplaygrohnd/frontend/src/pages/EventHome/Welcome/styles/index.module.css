@@ -1,0 +1,41 @@
+/* pages/EventHome/Welcome/styles/index.module.css */
+.welcome {
+  padding: 0 clamp(var(--space-md), 4vw, var(--space-xl));
+  margin-bottom: clamp(var(--space-xl), 4vw, var(--space-2xl));
+}
+
+.container {
+  composes: section-container from '../../../../styles/design-tokens.css';
+  max-width: 1000px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.title {
+  composes: section-title from '../../../../styles/design-tokens.css';
+  font-weight: 300;
+  color: var(--color-primary);
+  letter-spacing: -0.02em;
+}
+
+.content {
+  font-size: clamp(var(--text-base), 2.5vw, 1.1rem);
+  line-height: 1.8;
+  color: var(--color-text-secondary);
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+@media (max-width: 480px) {
+  .welcome {
+    padding: var(--space-lg) var(--space-md);
+  }
+
+  .title {
+    font-size: clamp(var(--text-xl), 3.5vw, var(--text-2xl)) !important;
+  }
+
+  .content {
+    font-size: clamp(var(--text-sm), 2.2vw, var(--text-base));
+  }
+}

@@ -1,0 +1,199 @@
+.card {
+  composes: card-base from '../../../../styles/design-tokens.css';
+  margin-bottom: var(--space-sm);
+}
+
+/* Header with avatar and user info */
+.cardHeader {
+  composes: card-header from '../../../../styles/design-tokens.css';
+  margin-bottom: var(--space-md);
+}
+
+.userInfo {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-md);
+}
+
+.avatar {
+  flex-shrink: 0;
+}
+
+.userDetails {
+  flex: 1;
+  min-width: 0;
+}
+
+.userName {
+  composes: card-title from '../../../../styles/design-tokens.css';
+  cursor: pointer;
+  color: var(--color-primary) !important;
+  transition: opacity 0.2s ease;
+  margin-bottom: var(--space-xs);
+}
+
+.userName:hover {
+  opacity: 0.8;
+}
+
+.userTitle {
+  color: var(--color-text-primary);
+  font-weight: 500;
+  margin-bottom: 2px;
+}
+
+.userCompany {
+  color: var(--color-text-secondary);
+}
+
+/* Connection info section */
+.connectionInfo {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: var(--space-md);
+  padding: var(--space-sm) 0;
+  border-top: 1px solid rgba(139, 92, 246, 0.08);
+  border-bottom: 1px solid rgba(139, 92, 246, 0.08);
+}
+
+.connectionEvent {
+  flex: 1;
+}
+
+.eventBadge {
+  background: rgba(139, 92, 246, 0.08) !important;
+  color: var(--color-primary) !important;
+  border: 1px solid rgba(139, 92, 246, 0.15);
+}
+
+.directConnection {
+  color: var(--color-text-muted);
+  font-style: italic;
+}
+
+.connectionDate {
+  color: var(--color-text-muted);
+  flex-shrink: 0;
+  margin-left: var(--space-sm);
+}
+
+/* Contact info section */
+.contactInfo {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: var(--space-md);
+}
+
+.socialLinks {
+  display: flex;
+  gap: 2px;
+  align-items: center;
+}
+
+/* Social media icon styling to match PersonCard */
+.socialLinks :global(.mantine-ActionIcon-root) {
+  color: #64748b;
+  transition: all 0.2s ease;
+  width: 32px;
+  height: 32px;
+  min-width: 32px;
+  min-height: 32px;
+}
+
+.socialLinks :global(.mantine-ActionIcon-root:hover) {
+  transform: translateY(-1px);
+}
+
+/* LinkedIn specific hover color */
+.linkedinIcon {
+  display: inline-flex;
+}
+
+.linkedinIcon :global(.mantine-ActionIcon-root:hover) {
+  color: #0077b5;
+  background: transparent;
+  transform: scale(1.1);
+}
+
+/* Twitter specific hover color */
+.twitterIcon {
+  display: inline-flex;
+}
+
+.twitterIcon :global(.mantine-ActionIcon-root:hover) {
+  color: #1da1f2;
+  background: transparent;
+  transform: scale(1.1);
+}
+
+/* Website icon - purple color */
+.websiteIcon {
+  display: inline-flex;
+}
+
+.websiteIcon :global(.mantine-ActionIcon-root:hover) {
+  color: #8b5cf6;
+  background: transparent;
+  transform: scale(1.1);
+}
+
+.email {
+  flex: 1;
+  text-align: right;
+  margin-left: var(--space-sm);
+}
+
+.emailLink {
+  color: var(--color-primary);
+  text-decoration: none;
+  transition: opacity 0.2s ease;
+  font-size: var(--text-xs);
+}
+
+.emailLink:hover {
+  opacity: 0.8;
+  text-decoration: underline;
+}
+
+/* Card actions */
+.cardActions {
+  margin-top: auto;
+  padding-top: var(--space-sm);
+}
+
+.messageButton {
+  height: 44px; /* Touch-friendly height */
+  font-weight: 500;
+  transition: all 0.2s ease;
+}
+
+.messageButton:hover {
+  transform: translateY(-1px);
+  box-shadow: var(--shadow-md);
+}
+
+/* Responsive adjustments */
+@media (max-width: 480px) {
+  .connectionInfo {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: var(--space-xs);
+  }
+
+  .connectionDate {
+    margin-left: 0;
+  }
+
+  .contactInfo {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: var(--space-sm);
+  }
+
+  .email {
+    text-align: left;
+    margin-left: 0;
+  }
+}

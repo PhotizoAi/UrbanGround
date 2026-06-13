@@ -1,0 +1,23 @@
+/* pages/EventHome/Highlights/styles/index.module.css */
+.highlights {
+  padding: 0 clamp(var(--space-md), 4vw, var(--space-xl));
+  margin-bottom: clamp(var(--space-xl), 4vw, var(--space-2xl));
+}
+
+.container {
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  gap: clamp(var(--space-lg), 3vw, var(--space-xl));
+}
+
+@media (max-width: 480px) {
+  .grid {
+    grid-template-columns: 1fr;
+    gap: var(--space-lg);
+  }
+}

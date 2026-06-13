@@ -1,0 +1,160 @@
+.eventsSection {
+  composes: section-container from '../../../../../styles/design-tokens.css';
+  margin-bottom: clamp(1.5rem, 3vw, 2rem);
+}
+
+.sectionHeader {
+  composes: section-header from '../../../../../styles/design-tokens.css';
+}
+
+.sectionTitle {
+  composes: section-title from '../../../../../styles/design-tokens.css';
+}
+
+/* Mobile Tab Selector */
+.mobileTabSelector {
+  display: none;
+  padding: var(--space-md);
+  background: var(--primary-alpha-4);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid var(--primary-alpha-8);
+}
+
+.mobileSelect {
+  width: 100%;
+}
+
+.mobileSelectInput {
+  background: rgba(255, 255, 255, 0.9) !important;
+  border: 1px solid var(--primary-alpha-15) !important;
+  font-weight: 500 !important;
+}
+
+.mobileSelectDropdown {
+  background: rgba(255, 255, 255, 0.95) !important;
+  backdrop-filter: blur(10px);
+  border: 1px solid var(--primary-alpha-10) !important;
+  box-shadow: var(--shadow-lg) !important;
+}
+
+/* Tabs Container */
+.tabsContainer {
+  width: 100%;
+}
+
+.tabsList {
+  background: var(--primary-alpha-4);
+  backdrop-filter: blur(10px);
+  border-radius: var(--radius-md);
+  padding: 4px;
+  margin-bottom: clamp(1rem, 3vw, 1.5rem);
+  display: flex;
+  gap: 4px;
+  overflow-x: auto;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+.tabsList::-webkit-scrollbar {
+  display: none;
+}
+
+.tab {
+  padding: clamp(0.5rem, 2vw, 0.75rem) clamp(0.75rem, 3vw, 1.25rem);
+  transition: all 0.2s ease;
+  color: var(--color-text-secondary);
+  font-weight: 500;
+  border: none;
+  background: transparent;
+  border-radius: var(--radius-sm);
+  position: relative;
+  white-space: nowrap;
+  min-width: max-content;
+}
+
+.tab:hover {
+  color: var(--color-primary);
+  background: var(--primary-alpha-6);
+}
+
+.tab[data-active] {
+  color: var(--color-primary);
+  background: var(--color-background-glass);
+  box-shadow: var(--shadow-sm);
+}
+
+.countBadge {
+  margin-left: clamp(0.25rem, 1vw, 0.5rem);
+}
+
+/* Tab Panel */
+.tabPanel {
+  padding: 0;
+}
+
+/* Events Grid */
+.eventsGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: clamp(1rem, 2.5vw, 1.5rem);
+}
+
+/* Empty State */
+.emptyState {
+  composes: empty-state from '../../../../../styles/design-tokens.css';
+  min-height: 300px;
+}
+
+.emptyContent {
+  text-align: center;
+  padding: clamp(var(--space-lg), 4vw, var(--space-xl));
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+  .eventsGrid {
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 1rem;
+  }
+}
+
+@media (max-width: 768px) {
+  /* Show mobile dropdown, hide desktop tabs */
+  .mobileTabSelector {
+    display: block;
+  }
+
+  .tabsList {
+    display: none !important;
+  }
+
+  /* Center section header on mobile */
+  .sectionHeader {
+    flex-direction: column !important;
+    align-items: center !important;
+    text-align: center !important;
+    gap: var(--space-sm) !important;
+  }
+
+  .sectionTitle {
+    font-size: clamp(1.375rem, 4vw, 1.75rem) !important;
+    text-align: center !important;
+    width: 100% !important;
+    margin-bottom: 0 !important;
+  }
+
+  .eventsGrid {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .eventsGrid {
+    gap: 0.75rem;
+  }
+
+  .emptyContent {
+    padding: var(--space-lg);
+  }
+}

@@ -1,0 +1,183 @@
+/* Use global semantic classes via CSS Modules composition */
+
+/* Section Layout Classes */
+.dashboardSection {
+  composes: section-container from '../../../../styles/design-tokens.css';
+}
+
+.sectionHeader {
+  composes: section-header from '../../../../styles/design-tokens.css';
+}
+
+.sectionTitle {
+  composes: section-title from '../../../../styles/design-tokens.css';
+}
+
+/* Card System Classes */
+.cardList {
+  composes: card-list from '../../../../styles/design-tokens.css';
+}
+
+.card {
+  composes: card-base from '../../../../styles/design-tokens.css';
+}
+
+.cardHeader {
+  composes: card-header from '../../../../styles/design-tokens.css';
+}
+
+.cardContent {
+  composes: card-content from '../../../../styles/design-tokens.css';
+}
+
+.cardTitle {
+  composes: card-title from '../../../../styles/design-tokens.css';
+}
+
+.cardSubtitle {
+  composes: card-subtitle from '../../../../styles/design-tokens.css';
+}
+
+.cardMeta {
+  composes: card-meta from '../../../../styles/design-tokens.css';
+}
+
+.eventStatus {
+  padding: 0.3rem 0.8rem;
+  border-radius: var(--radius-sm);
+  font-size: 0.8rem;
+  font-weight: 500;
+}
+
+/* Custom responsive badge styling to override Mantine inline styles */
+.responsiveBadge {
+  font-size: clamp(0.75rem, 2vw, 0.8rem) !important;
+  padding: clamp(0.25rem, 1vw, 0.3rem) clamp(0.6rem, 2vw, 0.8rem) !important;
+  text-transform: none !important;
+  font-weight: 500 !important;
+  border-radius: 4px !important;
+  flex-shrink: 0;
+}
+
+.statusUpcoming {
+  background: rgba(34, 197, 94, 0.1);
+  color: var(--color-success);
+}
+
+.statusLive {
+  background: rgba(239, 68, 68, 0.1);
+  color: var(--color-error);
+}
+
+.statusCompleted {
+  background: rgba(107, 114, 128, 0.1);
+  color: #6b7280;
+}
+
+.emptyState {
+  composes: empty-state from '../../../../styles/design-tokens.css';
+}
+
+/* Responsive Design */
+@media (max-width: 429px) {
+  /* iPhone SE and smaller */
+  .sectionHeader {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0.75rem;
+  }
+
+  .sectionTitle {
+    text-align: center;
+  }
+
+  .card {
+    padding: 1rem;
+    margin-bottom: 0.75rem;
+  }
+
+  .cardHeader {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0.5rem;
+    margin-bottom: 0.5rem;
+  }
+
+  /* font-size handled by clamp() */
+
+  .cardSubtitle {
+    font-size: 0.85rem;
+  }
+
+  .cardMeta {
+    font-size: 0.75rem;
+  }
+
+  /* Clamp handles size, keep positioning */
+  .responsiveBadge {
+    align-self: flex-start;
+  }
+
+  .emptyState {
+    padding: 1.5rem 1rem;
+  }
+}
+
+@media (min-width: 430px) and (max-width: 767px) {
+  /* iPhone 15 Pro range */
+  .sectionHeader {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 1rem;
+  }
+
+  .sectionTitle {
+    text-align: center;
+  }
+
+  .card {
+    padding: 1.1rem;
+    margin-bottom: 0.9rem;
+  }
+
+  .cardHeader {
+    flex-wrap: wrap;
+    gap: 0.6rem;
+  }
+
+  /* font-size handled by clamp() */
+
+  /* font-size and padding handled by clamp() */
+
+  .emptyState {
+    padding: 1.75rem 1.25rem;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 1023px) {
+  /* Tablet range */
+  .sectionHeader {
+    flex-direction: row;
+    align-items: center;
+  }
+
+  /* font-size handled by clamp() */
+
+  .card {
+    padding: 1.25rem;
+  }
+
+  .cardHeader {
+    flex-direction: row;
+    align-items: flex-start;
+  }
+}
+
+@media (min-width: 1024px) and (max-width: 1439px) {
+  /* Small desktop/MacBook Air */
+  /* font-size handled by clamp() */
+
+  .card {
+    padding: 1.4rem;
+  }
+}

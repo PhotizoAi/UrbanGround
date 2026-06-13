@@ -1,0 +1,109 @@
+/* pages/Agenda/styles/index.module.css */
+.pageContainer {
+  min-height: 100vh;
+  background: var(--color-background);
+  position: relative;
+  overflow: hidden;
+}
+
+.contentWrapper {
+  position: relative;
+  z-index: 10;
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: clamp(var(--space-md), 4vw, var(--space-xl));
+  display: flex;
+  flex-direction: column;
+  gap: clamp(var(--space-lg), 3vw, var(--space-xl));
+}
+
+/* Animated background shapes */
+.animatedShape1 {
+  position: fixed;
+  width: 350px;
+  height: 350px;
+  background: linear-gradient(135deg, var(--gradient-green-medium), var(--gradient-green-light));
+  border-radius: 63% 37% 54% 46% / 55% 48% 52% 45%;
+  top: -120px;
+  right: -100px;
+  opacity: 0.05;
+  animation: float1 20s infinite ease-in-out;
+  z-index: 0;
+  pointer-events: none;
+}
+
+.animatedShape2 {
+  position: fixed;
+  width: 400px;
+  height: 420px;
+  background: linear-gradient(45deg, var(--gradient-purple-light), var(--gradient-purple-medium));
+  border-radius: 30% 70% 53% 47% / 26% 46% 54% 74%;
+  bottom: -180px;
+  left: -120px;
+  opacity: 0.04;
+  animation: float2 25s infinite ease-in-out;
+  z-index: 0;
+  pointer-events: none;
+}
+
+.animatedShape3 {
+  position: fixed;
+  width: 300px;
+  height: 300px;
+  background: linear-gradient(225deg, var(--gradient-red-medium), var(--gradient-red-dark));
+  border-radius: 45% 55% 62% 38% / 53% 51% 49% 47%;
+  top: 40%;
+  right: 15%;
+  opacity: 0.03;
+  animation: float3 30s infinite ease-in-out;
+  z-index: 0;
+  pointer-events: none;
+}
+
+@keyframes float1 {
+  0%,
+  100% {
+    transform: translate(0, 0) scale(1);
+  }
+  33% {
+    transform: translate(-30px, 30px) scale(1.1);
+  }
+  66% {
+    transform: translate(30px, -20px) scale(0.9);
+  }
+}
+
+@keyframes float2 {
+  0%,
+  100% {
+    transform: translate(0, 0) scale(1);
+  }
+  25% {
+    transform: translate(40px, -30px) scale(1.05);
+  }
+  50% {
+    transform: translate(-20px, -40px) scale(0.95);
+  }
+  75% {
+    transform: translate(-40px, 20px) scale(1.08);
+  }
+}
+
+@keyframes float3 {
+  0%,
+  100% {
+    transform: translate(-50%, -50%) scale(1);
+  }
+  20% {
+    transform: translate(-45%, -55%) scale(1.1);
+  }
+  40% {
+    transform: translate(-55%, -45%) scale(0.9);
+  }
+  60% {
+    transform: translate(-48%, -52%) scale(1.05);
+  }
+  80% {
+    transform: translate(-52%, -48%) scale(0.95);
+  }
+}

@@ -1,0 +1,503 @@
+/* src/components/Agenda/SessionCard/styles/index.module.css */
+
+/* Base card styles */
+.sessionCard {
+  background: var(--color-background-glass);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.7);
+  border-radius: var(--radius-lg);
+  box-shadow:
+    0 2px 15px var(--primary-alpha-8),
+    inset 0 1px 1px rgba(255, 255, 255, 0.8);
+  display: flex;
+  flex-direction: column;
+  min-height: clamp(70px, 10vw, 80px);
+  position: relative;
+  z-index: 5;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  container-type: inline-size;
+  text-decoration: none;
+  overflow: hidden; /* Contain content and prevent text overflow */
+  /* Optimized transitions with different speeds for different properties */
+  transition:
+    transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1),
+    /* Slight overshoot for natural feel */ box-shadow 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+    /* Smoother shadow transition */ border-color 0.3s ease-out,
+    z-index 0s; /* Instant z-index change */
+  /* Performance optimization */
+  will-change: transform, box-shadow;
+  transform: translateZ(0); /* Force GPU acceleration */
+}
+
+.sessionCard:hover {
+  transform: translateY(-3px); /* Remove scale to prevent text blur */
+  box-shadow:
+    0 12px 40px var(--primary-alpha-10),
+    0 4px 20px var(--primary-alpha-8),
+    inset 0 1px 1px rgba(255, 255, 255, 0.8);
+  border-color: var(--primary-alpha-20);
+  z-index: 15;
+  /* Add slight delay to prevent accidental triggers */
+  transition-delay: 0.05s;
+}
+
+/* Remove delay when leaving hover state for snappy response */
+.sessionCard:not(:hover) {
+  transition-delay: 0s;
+}
+
+/* Type tag styles */
+.typeTag {
+  padding: 0;
+  margin: 0;
+  position: relative;
+  z-index: 1;
+}
+
+.sessionType {
+  display: inline-block;
+  padding: clamp(4px, 1vw, 6px) clamp(10px, 2vw, 14px);
+  font-size: clamp(10px, 1.5vw, 11px);
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  border-top-left-radius: var(--radius-lg);
+  border-bottom-right-radius: var(--radius-lg);
+  color: white;
+  position: relative;
+  overflow: hidden;
+  /* Add smooth transition for hover effects */
+  transition:
+    transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1),
+    box-shadow 0.3s ease-out;
+  transform-origin: top left;
+}
+
+/* Add hover effect to session type when card is hovered */
+.sessionCard:hover .sessionType {
+  transform: translateY(-1px); /* Subtle lift instead of scale */
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Session type colors with glassmorphic effect */
+.keynote {
+  background: linear-gradient(
+    135deg,
+    var(--session-keynote-from) 0%,
+    var(--session-keynote-to) 100%
+  );
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  box-shadow:
+    0 2px 12px var(--session-keynote-shadow),
+    inset 0 1px 1px rgba(255, 255, 255, 0.2);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+}
+.panel {
+  background: linear-gradient(135deg, var(--session-panel-from) 0%, var(--session-panel-to) 100%);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  box-shadow:
+    0 2px 12px var(--session-panel-shadow),
+    inset 0 1px 1px rgba(255, 255, 255, 0.2);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+}
+.workshop {
+  background: linear-gradient(
+    135deg,
+    var(--session-workshop-from) 0%,
+    var(--session-workshop-to) 100%
+  );
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  box-shadow:
+    0 2px 12px var(--session-workshop-shadow),
+    inset 0 1px 1px rgba(255, 255, 255, 0.2);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+}
+.presentation {
+  background: linear-gradient(
+    135deg,
+    var(--session-presentation-from) 0%,
+    var(--session-presentation-to) 100%
+  );
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  box-shadow:
+    0 2px 12px var(--session-presentation-shadow),
+    inset 0 1px 1px rgba(255, 255, 255, 0.2);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+}
+.qa {
+  background: linear-gradient(135deg, var(--session-qa-from) 0%, var(--session-qa-to) 100%);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  box-shadow:
+    0 2px 12px var(--session-qa-shadow),
+    inset 0 1px 1px rgba(255, 255, 255, 0.2);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+}
+.networking {
+  background: linear-gradient(
+    135deg,
+    var(--session-networking-from) 0%,
+    var(--session-networking-to) 100%
+  );
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  box-shadow:
+    0 2px 12px var(--session-networking-shadow),
+    inset 0 1px 1px rgba(255, 255, 255, 0.2);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+/* Main content styles */
+.content {
+  padding: clamp(12px, 2vw, 16px) clamp(16px, 3vw, 20px);
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-xs);
+  /* Subtle transform for content on hover */
+  transition: transform 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.sessionCard:hover .content {
+  transform: translateX(2px);
+}
+
+.title {
+  margin: 0;
+  font-size: clamp(var(--text-sm), 2.5vw, 15px);
+  font-weight: 600;
+  color: var(--color-text-primary);
+  line-height: 1.4;
+  letter-spacing: -0.01em;
+  /* Color transition for hover */
+  transition: color 0.3s ease-out;
+  /* Text truncation for long titles */
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+}
+
+.sessionCard:hover .title {
+  color: var(--color-primary);
+}
+
+.time {
+  font-size: clamp(var(--text-xs), 2vw, 13px);
+  color: var(--color-text-secondary);
+  font-weight: 500;
+  /* Subtle color transition */
+  transition: color 0.3s ease-out;
+  /* Prevent text overflow */
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+}
+
+.sessionCard:hover .time {
+  color: #475569;
+}
+
+.eventTimeHover {
+  font-size: clamp(11px, 1.8vw, 12px);
+  color: var(--color-text-tertiary, #94a3b8);
+  font-style: italic;
+  font-weight: 400;
+  max-height: 0;
+  opacity: 0;
+  overflow: hidden;
+  transition:
+    max-height 0.3s ease-out,
+    opacity 0.3s ease-out,
+    margin-top 0.3s ease-out;
+  margin-top: 0;
+}
+
+.sessionCard:hover .eventTimeHover {
+  max-height: 30px;
+  opacity: 1;
+  margin-top: 2px;
+}
+
+/* Expanded content styles */
+.expandedContent {
+  padding: 0 20px;
+  max-height: 0;
+  opacity: 0;
+  overflow: hidden;
+  /* Separate transitions for smoother animation */
+  transition:
+    max-height 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+    opacity 0.3s ease-out,
+    padding 0.3s ease-out,
+    border-color 0.3s ease-out;
+  border-top: 1px solid transparent;
+  /* Prepare for animation */
+  transform-origin: top;
+  will-change: max-height, opacity;
+}
+
+.sessionCard:hover .expandedContent {
+  max-height: 750px;
+  opacity: 1;
+  padding: 8px 20px 12px 20px;
+  border-top: 1px solid rgba(139, 92, 246, 0.1);
+  /* Stagger the appearance */
+  transition-delay: 0.1s;
+}
+
+/* Animate child elements with stagger */
+.expandedContent > * {
+  transform: translateY(5px);
+  opacity: 0;
+  transition:
+    transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1),
+    opacity 0.3s ease-out;
+}
+
+.sessionCard:hover .expandedContent > * {
+  transform: translateY(0);
+  opacity: 1;
+}
+
+/* Stagger delays for child elements */
+.sessionCard:hover .expandedContent > *:nth-child(1) {
+  transition-delay: 0.15s;
+}
+
+.sessionCard:hover .expandedContent > *:nth-child(2) {
+  transition-delay: 0.2s;
+}
+
+.sessionCard:hover .expandedContent > *:nth-child(3) {
+  transition-delay: 0.25s;
+}
+
+.description {
+  font-size: 13px;
+  color: #475569;
+  margin: 4px 0 0 0;
+  line-height: 1.4;
+  position: relative;
+  z-index: 2;
+  /* Always visible - matching old JSX implementation */
+}
+
+/* Role group styles */
+.roleGroup {
+  margin-top: 0px;
+  padding-top: 10px;
+  border-top: 1px solid rgba(139, 92, 246, 0.1);
+  width: 100%;
+  position: relative;
+  z-index: 2;
+  /* Smooth border transition */
+  transition: border-color 0.3s ease-out;
+}
+
+.sessionCard:hover .roleGroup {
+  border-top-color: rgba(139, 92, 246, 0.15);
+}
+
+.roleGroup:first-child {
+  border-top: none;
+  padding-top: 4px;
+}
+
+.roleTitle {
+  font-size: clamp(10px, 1.5vw, 11px);
+  text-transform: uppercase;
+  color: var(--color-primary);
+  margin: 0 0 var(--space-xs) 0;
+  font-weight: 700;
+  letter-spacing: 0.8px;
+}
+
+/* Speakers layout */
+.speakers {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-top: 0;
+  position: relative;
+  z-index: 2;
+}
+
+.roleGroup .speakersRow {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  width: 100%;
+}
+
+/* Individual speaker styles */
+.speaker {
+  display: flex;
+  align-items: center;
+  position: relative;
+  padding-right: 12px;
+  flex: 0 1 auto;
+  margin-bottom: 6px;
+  max-width: fit-content;
+  /* Add subtle hover effect for speakers */
+  transition: transform 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  transform-origin: left center;
+}
+
+.speaker:hover {
+  transform: translateX(2px);
+}
+
+.withDivider::after {
+  content: '|';
+  position: absolute;
+  right: 0;
+  color: rgba(139, 92, 246, 0.2);
+  opacity: 0.8;
+  font-weight: 300;
+}
+
+.speaker:last-child {
+  margin-bottom: 0;
+}
+
+/* Avatar styles */
+.avatarWrapper {
+  width: 32px;
+  height: 32px;
+  margin-right: 10px;
+  flex-shrink: 0;
+  position: relative;
+}
+
+.avatar {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid rgba(139, 92, 246, 0.2);
+  /* Smooth border animation on hover */
+  transition:
+    border-color 0.3s ease-out,
+    transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.speaker:hover .avatar {
+  border-color: rgba(139, 92, 246, 0.4);
+  transform: scale(1.05);
+}
+
+.avatarPlaceholder {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #8b5cf6 0%, #7c3aed 100%);
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 13px;
+  font-weight: 600;
+  box-shadow: 0 2px 8px rgba(139, 92, 246, 0.2);
+  /* Add animation to placeholder too */
+  transition:
+    transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1),
+    box-shadow 0.3s ease-out;
+}
+
+.speaker:hover .avatarPlaceholder {
+  transform: translateY(-1px); /* Lift instead of scale to prevent text blur */
+  box-shadow: 0 4px 12px rgba(139, 92, 246, 0.3);
+}
+
+/* Speaker info styles */
+.speakerInfo {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
+  min-width: 0;
+}
+
+.speakerName {
+  font-size: 13px;
+  font-weight: 600;
+  color: #1e293b;
+  line-height: 1.2;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.speakerTitle {
+  font-size: 12px;
+  color: #64748b;
+  line-height: 1.2;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* Social link styles */
+.socialLinks {
+  display: flex;
+  gap: 4px;
+  margin-top: 1px;
+}
+
+.socialLink {
+  color: #8b5cf6;
+  display: flex;
+  align-items: center;
+  height: 20px;
+  cursor: pointer;
+  opacity: 0.7;
+  /* Smoother transitions with different curves */
+  transition:
+    transform 0.2s cubic-bezier(0.34, 1.56, 0.64, 1),
+    color 0.2s ease-out,
+    opacity 0.2s ease-out;
+  transform-origin: center;
+}
+
+.socialLink:hover {
+  color: #7c3aed;
+  opacity: 1;
+  transform: translateY(-2px) scale(1.1);
+}
+
+/* Active state for better feedback */
+.socialLink:active {
+  transform: translateY(0) scale(0.95);
+  transition-duration: 0.1s;
+}
+
+/* Responsive adjustments */
+@media (max-width: 480px) {
+  .sessionCard {
+    min-height: 70px;
+  }
+
+  .content {
+    padding: var(--space-sm) var(--space-md);
+  }
+
+  .expandedContent {
+    padding: 0 var(--space-md);
+  }
+
+  .sessionCard:hover .expandedContent {
+    padding: var(--space-sm) var(--space-md) var(--space-sm) var(--space-md);
+  }
+
+  /* Ensure session type badge remains readable on mobile */
+  .sessionType {
+    padding: 4px 10px;
+    font-size: 10px;
+  }
+}

@@ -1,0 +1,114 @@
+.profileHero {
+  composes: section-container from '../../../../styles/design-tokens.css';
+  margin-bottom: var(--space-xl);
+  position: relative;
+}
+
+.profileHeroContent {
+  display: flex;
+  align-items: center;
+  gap: var(--space-xl);
+}
+
+.avatarContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-sm);
+}
+
+.profileAvatarLarge {
+  width: 120px;
+  height: 120px;
+  border-radius: var(--radius-lg);
+  background: linear-gradient(45deg, var(--color-primary), var(--gradient-purple-medium));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 3rem;
+  color: white;
+  flex-shrink: 0;
+  box-shadow: var(--shadow-xl);
+}
+
+.rerollButton {
+  font-size: var(--text-sm);
+  padding: var(--space-xs) var(--space-sm);
+  background: var(--primary-alpha-8);
+  border: 1px solid var(--primary-alpha-15);
+  border-radius: var(--radius-md);
+  color: var(--color-primary);
+  transition: all 0.2s ease;
+}
+
+.rerollButton:hover {
+  background: rgba(139, 92, 246, 0.1);
+  border-color: rgba(139, 92, 246, 0.2);
+}
+
+.profileInfo {
+  flex: 1;
+}
+
+.profileName {
+  font-size: clamp(1.5rem, 4vw, 2rem);
+  font-weight: 600;
+  color: var(--color-text-primary);
+  margin-bottom: 0.125rem;
+  line-height: 1.2;
+}
+
+.profileTitle {
+  font-size: clamp(1rem, 2.5vw, 1.1rem);
+  color: var(--color-text-secondary);
+  margin-bottom: var(--space-sm);
+  line-height: 1.3;
+  padding-left: 2px;
+}
+
+.profileMeta {
+  display: flex;
+  gap: var(--space-lg);
+  color: var(--color-text-muted);
+  font-size: clamp(var(--text-sm), 2vw, 0.9rem);
+  margin-top: 0;
+}
+
+.profileMetaItem {
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+}
+
+.profileMetaItem svg {
+  opacity: 0.7;
+}
+
+.profileActions {
+  display: flex;
+  gap: var(--space-md);
+  align-items: center;
+}
+
+.profileActions button {
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+}
+
+@media (max-width: 768px) {
+  .profileHeroContent {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .profileActions {
+    margin-top: var(--space-md);
+  }
+
+  .profileMeta {
+    flex-direction: column;
+    gap: var(--space-sm);
+    align-items: center;
+  }
+}

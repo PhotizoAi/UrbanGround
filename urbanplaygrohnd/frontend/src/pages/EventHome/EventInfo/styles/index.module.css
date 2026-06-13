@@ -1,0 +1,104 @@
+/* pages/EventHome/EventInfo/styles/index.module.css */
+.eventInfo {
+  padding: 0 clamp(var(--space-md), 4vw, var(--space-xl));
+  margin-bottom: clamp(var(--space-xl), 4vw, var(--space-2xl));
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: clamp(var(--space-md), 3vw, var(--space-lg));
+}
+
+.infoCard {
+  composes: card-base from '../../../../styles/design-tokens.css';
+  display: flex;
+  align-items: flex-start;
+  gap: clamp(var(--space-md), 3vw, var(--space-lg));
+  transition: all 0.3s ease;
+  cursor: default !important;
+}
+
+.infoCard:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md);
+  background: rgba(255, 255, 255, 1);
+}
+
+.infoCard:last-child {
+  margin-bottom: clamp(0.75rem, 2vw, var(--space-md)) !important;
+}
+
+.iconWrapper {
+  background: var(--primary-alpha-8);
+  width: clamp(48px, 8vw, 56px);
+  height: clamp(48px, 8vw, 56px);
+  border-radius: var(--radius-lg);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.icon {
+  color: var(--color-primary);
+}
+
+.cardContent {
+  flex: 1;
+}
+
+.cardTitle {
+  composes: card-meta from '../../../../styles/design-tokens.css';
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin: 0 0 var(--space-sm) 0;
+}
+
+.cardText {
+  font-size: clamp(var(--text-base), 2.5vw, var(--text-xl));
+  font-weight: 600;
+  color: var(--color-text-primary);
+  margin: 0 0 var(--space-xs) 0;
+  line-height: 1.4;
+}
+
+.cardContent > *:last-child {
+  margin-bottom: 0 !important;
+}
+
+.cardSubtext {
+  font-size: clamp(var(--text-sm), 2vw, 0.95rem);
+  color: var(--color-text-secondary);
+  margin: 0;
+  line-height: 1.4;
+}
+
+@media (max-width: 480px) {
+  .grid {
+    grid-template-columns: 1fr;
+  }
+
+  .infoCard {
+    flex-direction: column;
+    text-align: center;
+    gap: var(--space-md);
+    align-items: center;
+  }
+
+  .cardContent {
+    text-align: center;
+  }
+
+  .cardTitle,
+  .cardText,
+  .cardSubtext {
+    text-align: center;
+  }
+}

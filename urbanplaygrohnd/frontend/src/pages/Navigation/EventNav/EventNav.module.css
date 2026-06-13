@@ -1,0 +1,121 @@
+.navWrapper {
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: flex;
+  flex-direction: column;
+  background: rgba(251, 250, 255, 0.1);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  box-shadow: 2px 0 8px var(--primary-alpha-4);
+}
+
+.container {
+  padding: clamp(var(--space-md), 3vw, var(--space-xl));
+  flex: 1;
+  overflow: auto;
+}
+
+/* Override Mantine AppShell.Navbar styles */
+:global(.mantine-AppShell-navbar) {
+  border-right: none !important;
+  background: transparent !important;
+  padding: 0 !important;
+  top: 60px !important; /* Align with header height */
+}
+
+.header {
+  padding: 0 var(--space-md);
+}
+
+.header :global(.mantine-Text-root) {
+  color: var(--color-primary);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  font-size: clamp(var(--text-xs), 2.5vw, var(--text-sm));
+}
+
+.attribution {
+  position: absolute;
+  bottom: clamp(var(--space-lg), 5vw, 40px);
+  left: 0;
+  right: 0;
+  padding: var(--space-md);
+  text-align: center;
+}
+
+.attribution :global(.mantine-Text-root) {
+  color: var(--color-text-muted);
+  font-size: clamp(10px, 2vw, var(--text-xs));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-xs);
+}
+
+.heartIcon {
+  color: var(--color-primary);
+  fill: var(--color-primary);
+  vertical-align: middle;
+}
+
+.link {
+  color: var(--color-primary);
+  text-decoration: none;
+  transition: opacity 0.2s ease;
+}
+
+.link:hover {
+  opacity: 0.8;
+  text-decoration: none;
+}
+
+/* Mobile - when navbar covers full page (Mantine sm breakpoint) */
+@media (max-width: 768px) {
+  .navWrapper {
+    background: rgba(251, 250, 255, 0.8); /* Increased opacity for mobile full-page coverage */
+  }
+}
+
+/* Responsive adjustments for EventNav */
+@media (max-width: 480px) {
+  .container {
+    padding: var(--space-sm);
+  }
+
+  .header {
+    padding: 0 var(--space-sm);
+  }
+
+  .attribution {
+    display: none; /* Hide attribution on mobile for cleaner UX */
+  }
+}
+
+/* Laptop screens - expand width range and add height constraint */
+@media (min-width: 481px) and (max-width: 1600px) and (max-height: 1000px) {
+  .container {
+    padding: var(--space-sm); /* Tighter padding on laptops to prevent scroll */
+  }
+
+  .header {
+    padding: 0 var(--space-md) !important; /* Match admin section padding */
+  }
+
+  .attribution {
+    bottom: var(--space-sm); /* Reduce bottom space */
+    padding: var(--space-sm);
+  }
+}
+
+@media (min-width: 1281px) {
+  .container {
+    padding: var(--space-xl);
+  }
+
+  .header {
+    padding: 0 var(--space-xl);
+  }
+}

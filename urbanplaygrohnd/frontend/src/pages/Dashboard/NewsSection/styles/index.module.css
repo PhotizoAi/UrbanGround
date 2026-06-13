@@ -1,0 +1,272 @@
+/* Use global semantic classes via CSS Modules composition */
+
+/* Section Layout Classes */
+.dashboardSection {
+  composes: section-container from '../../../../styles/design-tokens.css';
+}
+
+.sectionHeader {
+  composes: section-header from '../../../../styles/design-tokens.css';
+}
+
+.sectionTitle {
+  composes: section-title from '../../../../styles/design-tokens.css';
+}
+
+.newsList {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  max-height: 400px;
+  overflow-y: auto;
+  overflow-x: hidden;
+  padding-right: 4px; /* Space for scrollbar */
+}
+
+/* Custom scrollbar styling for news list */
+.newsList::-webkit-scrollbar {
+  width: 8px;
+}
+
+.newsList::-webkit-scrollbar-track {
+  background: rgba(139, 92, 246, 0.02);
+  border-radius: 4px;
+}
+
+.newsList::-webkit-scrollbar-thumb {
+  background: rgba(139, 92, 246, 0.15);
+  border-radius: 4px;
+  transition: background 0.2s ease;
+}
+
+.newsList::-webkit-scrollbar-thumb:hover {
+  background: rgba(139, 92, 246, 0.25);
+}
+
+/* Firefox scrollbar styling */
+.newsList {
+  scrollbar-width: thin;
+  scrollbar-color: rgba(139, 92, 246, 0.15) rgba(139, 92, 246, 0.02);
+}
+
+.newsItem {
+  display: flex;
+  align-items: flex-start;
+  gap: clamp(0.75rem, 2vw, 1rem);
+  padding: clamp(0.75rem, 2vw, 1rem);
+  border-bottom: 1px solid rgba(139, 92, 246, 0.06);
+  transition: all 0.2s ease;
+  border-radius: 6px;
+  margin-bottom: clamp(0.4rem, 1vw, 0.5rem);
+}
+
+.newsItem:last-child {
+  border-bottom: none;
+  margin-bottom: 0;
+}
+
+/* Inline links in descriptions */
+.inlineLink {
+  color: #8b5cf6;
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.2s ease;
+}
+
+.inlineLink:hover {
+  color: #7c3aed;
+  text-decoration: underline;
+}
+
+.platformUpdateItem {
+  background: #fafaff;
+  border: 1px solid #f1f0ff;
+}
+
+.platformUpdateItem:hover {
+  background: #f5f4ff;
+}
+
+.productLaunchItem {
+  background: #fafffa;
+  border: 1px solid #f0fff0;
+}
+
+.productLaunchItem:hover {
+  background: #f4fff4;
+}
+
+.featureReleaseItem {
+  background: #fffefa;
+  border: 1px solid #fff8f0;
+}
+
+.featureReleaseItem:hover {
+  background: #fffcf4;
+}
+
+.securityItem {
+  background: #fffafa;
+  border: 1px solid #fff0f0;
+}
+
+.securityItem:hover {
+  background: #fff4f4;
+}
+
+.newsDot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  margin-top: 0.5rem;
+  flex-shrink: 0;
+}
+
+.newsDot.new {
+  background: #10b981;
+}
+
+.newsDot.recent {
+  background: #f59e0b;
+}
+
+.newsDot.older {
+  background: #94a3b8;
+}
+
+.newsContent {
+  flex: 1;
+}
+
+.newsTitle {
+  font-weight: 600;
+  color: #1e293b;
+  font-size: clamp(0.9rem, 2vw, 0.95rem);
+  margin-bottom: clamp(0.1rem, 1vw, 0.25rem);
+  line-height: 1.3;
+}
+
+.newsDescription {
+  color: #64748b;
+  font-size: clamp(0.75rem, 1.8vw, 0.85rem);
+  line-height: 1.4;
+  margin-bottom: clamp(0.4rem, 1vw, 0.5rem);
+}
+
+.newsMeta {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  font-size: 0.8rem;
+  color: #94a3b8;
+}
+
+/* Badge composition from design tokens */
+.platformUpdateBadge {
+  composes: badge-base badge-primary from '../../../../styles/design-tokens.css' !important;
+}
+
+.productLaunchBadge {
+  composes: badge-base badge-success from '../../../../styles/design-tokens.css' !important;
+}
+
+.featureReleaseBadge {
+  composes: badge-base badge-warning from '../../../../styles/design-tokens.css' !important;
+}
+
+.securityBadge {
+  composes: badge-base badge-danger from '../../../../styles/design-tokens.css' !important;
+}
+
+.emptyState {
+  composes: empty-state from '../../../../styles/design-tokens.css';
+}
+
+/* Responsive Design */
+/* Disable max-height on mobile/tablet - allow natural page scrolling */
+@media (max-width: 1023px) {
+  .newsList {
+    max-height: none;
+    overflow-y: visible;
+    padding-right: 0;
+  }
+}
+
+@media (max-width: 429px) {
+  /* iPhone SE and smaller */
+  .sectionHeader {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0.75rem;
+  }
+
+  .sectionTitle {
+    text-align: center;
+  }
+
+  .newsItem {
+    gap: 0.75rem;
+    padding: 0.75rem;
+    margin-bottom: 0.4rem;
+  }
+
+  /* font-size handled by clamp() */
+
+  .newsMeta {
+    font-size: 0.7rem;
+    gap: 0.5rem;
+  }
+
+  /* Badge styles handled by composed classes */
+
+  .emptyState {
+    padding: 1.5rem 1rem;
+  }
+}
+
+@media (min-width: 430px) and (max-width: 767px) {
+  /* iPhone 15 Pro range */
+  .sectionHeader {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 1rem;
+  }
+
+  .sectionTitle {
+    text-align: center;
+  }
+
+  .newsItem {
+    gap: 0.9rem;
+    padding: 0.9rem;
+  }
+
+  /* font-size handled by clamp() */
+
+  .emptyState {
+    padding: 1.75rem 1.25rem;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 1023px) {
+  /* Tablet range */
+  .sectionHeader {
+    flex-direction: row;
+    align-items: center;
+  }
+
+  /* font-size handled by clamp() */
+
+  .newsItem {
+    padding: 0.9rem;
+  }
+}
+
+@media (min-width: 1024px) and (max-width: 1439px) {
+  /* Small desktop/MacBook Air */
+  /* font-size handled by clamp() */
+
+  .newsItem {
+    padding: 0.95rem;
+  }
+}

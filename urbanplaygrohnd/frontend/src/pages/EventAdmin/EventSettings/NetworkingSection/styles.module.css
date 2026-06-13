@@ -1,0 +1,442 @@
+/* Glass sections - additional styling to complement parent */
+.glassSection {
+  /* Parent already provides the glass effect */
+  position: relative;
+}
+
+/* Section titles */
+.subsectionTitle {
+  font-size: clamp(1rem, 2.5vw, 1.1rem);
+  font-weight: 600;
+  color: var(--color-text-primary);
+  margin-bottom: clamp(0.75rem, 2vw, 1rem);
+  text-align: left; /* Left align on desktop */
+}
+
+/* Draggable list container */
+.draggableList {
+  position: relative;
+  min-height: 80px;
+  background: rgba(255, 255, 255, 0.3);
+  border-radius: var(--radius-md);
+  padding: clamp(0.375rem, 1.5vw, 0.5rem);
+  border: 2px dashed transparent;
+  transition: all 0.2s ease;
+}
+
+/* Empty state */
+.emptyState {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 70px;
+  color: var(--color-text-muted);
+  font-size: clamp(0.875rem, 2vw, 0.9rem);
+  font-weight: 500;
+  background: rgba(248, 250, 252, 0.5);
+  border-radius: var(--radius-md);
+  border: 2px dashed rgba(148, 163, 184, 0.3);
+}
+
+/* Draggable cards */
+.draggableCard {
+  background: rgba(255, 255, 255, 1);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.9);
+  border-radius: var(--radius-md);
+  margin-bottom: clamp(0.5rem, 2vw, 0.75rem);
+  box-shadow: var(--shadow-sm);
+  transition: all 0.2s ease;
+  user-select: none; /* Prevent text selection during drag */
+  -webkit-user-select: none;
+  overflow: hidden;
+  position: relative;
+}
+
+.draggableCard:last-child {
+  margin-bottom: 0;
+}
+
+.draggableCard:hover {
+  box-shadow: var(--shadow-md);
+  transform: translateY(-1px);
+}
+
+.draggableCard.dragging {
+  opacity: 0.5;
+  box-shadow: var(--shadow-lg);
+  transform: scale(1.02);
+}
+
+/* Card inner structure */
+.cardInner {
+  display: flex;
+  flex-direction: column;
+  min-height: 80px;
+  padding-top: clamp(0.75rem, 1vw, 1rem); /* Reduced top padding */
+  padding-bottom: clamp(0.75rem, 1.5vw, 1rem); /* Add bottom padding for balance */
+}
+
+/* Card header */
+.cardHeader {
+  display: flex !important;
+  align-items: flex-start !important;
+  justify-content: space-between !important;
+  gap: var(--space-sm);
+  padding: clamp(0.25rem, 1vw, 0.5rem) clamp(0.75rem, 2vw, 1rem) !important;
+  min-height: 20px !important;
+}
+
+/* Removed icebreaker ID and divider - not needed */
+
+/* Card body */
+.cardBody {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: clamp(0.75rem, 2vw, 1rem) clamp(1rem, 3vw, 1.5rem) clamp(1.25rem, 3vw, 1.5rem);
+}
+
+/* Message text - styled as italic quote */
+.messageText {
+  font-size: clamp(0.75rem, 1.6vw, 0.825rem) !important;
+  line-height: 1.5;
+  word-break: break-word;
+  color: var(--color-text-muted) !important;
+  font-style: italic;
+  position: relative;
+  padding: 0 clamp(1.5rem, 3vw, 2rem); /* Increased padding to avoid quote overlap */
+  text-align: center;
+  max-width: 90%; /* Constrain width to prevent edge overlap */
+  margin: 0 auto; /* Center the constrained text */
+}
+
+/* Add quotation marks */
+.messageText::before,
+.messageText::after {
+  font-size: clamp(1.25rem, 2.5vw, 1.5rem);
+  color: var(--color-primary);
+  opacity: 0.6;
+  font-style: normal;
+  position: absolute;
+  font-weight: 600;
+}
+
+.messageText::before {
+  content: '"';
+  left: 0;
+  top: -0.25rem;
+}
+
+.messageText::after {
+  content: '"';
+  right: 0;
+  bottom: -0.25rem;
+}
+
+/* Drag handle wrapper for better touch targets */
+.dragHandleWrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 44px; /* Touch-friendly minimum */
+  min-height: 44px;
+  flex-shrink: 0;
+}
+
+/* Drag handle */
+.dragHandle {
+  cursor: move;
+  color: var(--color-text-muted);
+  transition: all 0.2s ease;
+  flex-shrink: 0;
+  width: 44px !important; /* Override Mantine size */
+  height: 44px !important;
+}
+
+.dragHandle:hover {
+  color: var(--color-text-secondary);
+  background: var(--primary-alpha-4) !important;
+}
+
+.dragHandle:active {
+  color: var(--color-primary);
+  background: var(--primary-alpha-8) !important;
+}
+
+/* Menu button styling */
+.menuButton {
+  color: var(--color-text-muted) !important;
+  transition: all 0.2s ease;
+  padding: 0 !important;
+  min-width: 28px !important;
+  min-height: 28px !important;
+  width: 28px !important;
+  height: 28px !important;
+  position: absolute !important;
+  top: 0 !important;
+  right: 0 !important;
+  z-index: 10;
+  border-radius: 0 var(--radius-md) 0 var(--radius-md);
+}
+
+.menuButton:hover {
+  background: var(--primary-alpha-4) !important;
+  color: var(--color-text-secondary) !important;
+}
+
+/* Desktop card styles */
+.desktopCard {
+  background: rgba(255, 255, 255, 1);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.9);
+  border-radius: var(--radius-md);
+  margin-bottom: clamp(0.5rem, 2vw, 0.75rem);
+  box-shadow: var(--shadow-sm);
+  transition: all 0.2s ease;
+  user-select: none;
+  -webkit-user-select: none;
+}
+
+.desktopCard:hover {
+  box-shadow: var(--shadow-md);
+  transform: translateY(-1px);
+}
+
+.desktopCard.dragging {
+  opacity: 0.5;
+  box-shadow: var(--shadow-lg);
+  transform: scale(1.02);
+}
+
+.desktopCardInner {
+  padding: clamp(0.75rem, 2vw, 1rem);
+}
+
+.desktopCardIcon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+/* Desktop message text with quotes */
+.desktopMessageText {
+  flex: 1;
+  font-size: clamp(0.8125rem, 1.6vw, 0.875rem) !important; /* Smaller text */
+  line-height: 1.5;
+  color: var(--color-text-muted) !important; /* Gray instead of black */
+  font-style: italic;
+  position: relative;
+  padding: 0 clamp(1rem, 1.5vw, 1.25rem) !important; /* Reduced padding - quotes closer */
+}
+
+.desktopMessageText::before,
+.desktopMessageText::after {
+  font-size: clamp(1.125rem, 2vw, 1.25rem);
+  color: var(--color-primary);
+  opacity: 0.4; /* Slightly more subtle */
+  font-style: normal;
+  position: absolute;
+  font-weight: 600;
+}
+
+.desktopMessageText::before {
+  content: '"';
+  left: 0;
+  top: -0.125rem;
+}
+
+.desktopMessageText::after {
+  content: '"';
+  right: 0;
+  bottom: -0.125rem;
+}
+
+.desktopMenuButton {
+  color: var(--color-text-muted) !important;
+  transition: all 0.2s ease;
+}
+
+.desktopMenuButton:hover {
+  background: var(--primary-alpha-4) !important;
+  color: var(--color-text-secondary) !important;
+}
+
+/* Count badge */
+.countBadge {
+  background: var(--primary-alpha-8) !important;
+  color: var(--color-primary) !important;
+  border: 1px solid var(--primary-alpha-15) !important;
+  padding: 0.5rem 1rem !important;
+  font-weight: 500 !important;
+  font-size: clamp(0.75rem, 2vw, 0.875rem) !important;
+}
+
+/* Modal styles */
+.modalContent {
+  background: rgba(255, 255, 255, 1) !important;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.8);
+  box-shadow: var(--shadow-xl);
+}
+
+.modalHeader {
+  font-size: clamp(1.125rem, 2.5vw, 1.25rem);
+  font-weight: 600;
+  color: var(--color-text-primary);
+  padding: var(--space-lg);
+  border-bottom: 1px solid var(--primary-alpha-4);
+}
+
+/* Form inputs within modals - Subtle and clean */
+.formTextarea {
+  background: rgba(255, 255, 255, 1) !important;
+  border: 1px solid rgba(139, 92, 246, 0.1) !important;
+  transition: all 0.2s ease;
+  font-size: clamp(0.875rem, 2vw, 1rem);
+}
+
+.formTextarea:focus {
+  border-color: rgba(139, 92, 246, 0.3) !important;
+  background: rgba(255, 255, 255, 1) !important;
+}
+
+/* Helper text */
+.helperText {
+  font-size: clamp(0.7rem, 1.8vw, 0.75rem);
+  color: var(--color-text-muted);
+  font-style: italic;
+  margin-top: var(--space-xs);
+}
+
+/* Drag hint text */
+.dragHint {
+  font-size: clamp(0.625rem, 1.5vw, 0.7rem) !important;
+  color: var(--color-text-muted) !important;
+  font-style: italic !important;
+  text-align: center !important;
+  margin-bottom: clamp(0.5rem, 2vw, 0.75rem) !important;
+  opacity: 0.65 !important;
+  display: block !important;
+}
+
+/* Mobile center styles */
+.mobileCenter {
+  text-align: center;
+}
+
+.centerButton {
+  margin-top: var(--space-md);
+}
+
+/* Section header on mobile */
+.sectionHeader {
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+/* Desktop left alignment */
+.desktopLeft {
+  text-align: left;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .subsectionTitle {
+    font-size: 1rem;
+    text-align: center;
+  }
+
+  /* Hide drag handle on mobile */
+  .dragHandleWrapper {
+    display: none !important;
+  }
+
+  /* Center section header on mobile */
+  .sectionHeader {
+    flex-direction: column !important;
+    align-items: center !important;
+    gap: var(--space-md);
+  }
+
+  .mobileCenter {
+    text-align: center;
+    width: 100%;
+  }
+
+  .centerButton {
+    width: auto;
+    margin-top: var(--space-md);
+  }
+
+  /* Optimize card spacing for mobile */
+  .draggableList {
+    padding: 0.375rem;
+  }
+
+  .cardHeader {
+    padding: 0.75rem;
+  }
+
+  .cardBody {
+    padding: 0.75rem;
+  }
+
+  /* Menu button on mobile */
+  .menuButton {
+    min-width: 36px !important;
+    min-height: 36px !important;
+  }
+
+  /* Adjust message text for mobile */
+  .messageText {
+    font-size: 0.875rem;
+    padding: 0 0.5rem;
+  }
+
+  .messageText::before,
+  .messageText::after {
+    font-size: 1.125rem;
+  }
+}
+
+/* Small mobile devices (iPhone SE) */
+@media (max-width: 375px) {
+  .draggableCard {
+    padding: 0.625rem;
+  }
+
+  .messageText {
+    font-size: 0.75rem;
+  }
+
+  .countBadge {
+    font-size: 0.75rem !important;
+    padding: 0.375rem 0.75rem !important;
+  }
+}
+
+/* Global overrides for Mantine Modal */
+:global(.mantine-Modal-content) {
+  background: rgba(255, 255, 255, 1) !important;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.8);
+  box-shadow: var(--shadow-xl);
+}
+
+:global(.mantine-Modal-header) {
+  background: transparent;
+  border-bottom: 1px solid var(--primary-alpha-4);
+}
+
+:global(.mantine-Modal-overlay) {
+  background: rgba(30, 41, 59, 0.4);
+  backdrop-filter: blur(4px);
+}
