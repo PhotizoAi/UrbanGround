@@ -1,0 +1,143 @@
+/* Glass Section Override - Inherits from parent styles */
+.glassSection {
+  position: relative;
+}
+
+/* Form Label Styling */
+.formLabel {
+  color: var(--color-text-primary) !important;
+  font-weight: 500;
+  font-size: clamp(0.8125rem, 2vw, 0.9rem) !important;
+  margin-bottom: 0.25rem;
+}
+
+/* Form inputs within modals - Subtle and clean */
+.formInput {
+  background: rgba(255, 255, 255, 1) !important;
+  border: 1px solid rgba(139, 92, 246, 0.1) !important;
+  transition: all 0.2s ease;
+  font-size: clamp(0.875rem, 2vw, 0.95rem) !important;
+  min-height: 44px !important; /* Touch-friendly size */
+}
+
+.formInput:focus {
+  border-color: rgba(139, 92, 246, 0.3) !important;
+  background: rgba(255, 255, 255, 1) !important;
+}
+
+/* Privacy Section */
+.privacySection {
+  display: flex;
+  flex-direction: column;
+}
+
+.switchWrapper {
+  margin-top: 0.5rem;
+  padding: clamp(0.75rem, 2vw, 1rem);
+  background: var(--primary-alpha-4);
+  border-radius: var(--radius-md);
+  border: 1px solid var(--primary-alpha-8);
+}
+
+/* Switch Styling */
+.switchTrack {
+  background-color: var(--primary-alpha-20) !important;
+  border: 1px solid var(--primary-alpha-10) !important;
+}
+
+.switchTrack[data-checked] {
+  background-color: var(--color-primary) !important;
+  border-color: var(--color-primary) !important;
+}
+
+.switchLabel {
+  font-weight: 500;
+  color: var(--color-text-primary);
+  font-size: clamp(0.875rem, 2vw, 0.95rem);
+}
+
+.switchDescription {
+  color: var(--color-text-secondary);
+  font-size: clamp(0.75rem, 2vw, 0.85rem);
+  margin-top: 0.25rem;
+}
+
+/* Info Alert */
+.infoAlert {
+  background: var(--primary-alpha-4);
+  border: 1px solid var(--primary-alpha-10);
+  color: var(--color-text-primary);
+}
+
+.infoAlert svg {
+  color: var(--color-primary);
+}
+
+/* Subsection Title */
+.subsectionTitle {
+  font-size: clamp(1rem, 2.5vw, 1.1rem);
+  font-weight: 600;
+  color: var(--color-text-primary);
+  margin-top: clamp(1rem, 3vw, 1.5rem);
+  margin-bottom: clamp(0.75rem, 2vw, 1rem);
+  padding-bottom: 0.5rem;
+  border-bottom: 1px solid var(--primary-alpha-8);
+}
+
+/* Format Badge Styles */
+.formatVirtual {
+  background: rgba(6, 182, 212, 0.08);
+  color: var(--color-info);
+  padding: 0.25rem 0.75rem;
+  border-radius: var(--radius-sm);
+  font-size: clamp(0.75rem, 2vw, 0.8rem);
+  font-weight: 500;
+  display: inline-block;
+}
+
+.formatInPerson {
+  background: rgba(245, 158, 11, 0.08);
+  color: var(--color-warning);
+  padding: 0.25rem 0.75rem;
+  border-radius: var(--radius-sm);
+  font-size: clamp(0.75rem, 2vw, 0.8rem);
+  font-weight: 500;
+  display: inline-block;
+}
+
+.formatHybrid {
+  background: var(--primary-alpha-8);
+  color: var(--color-primary);
+  padding: 0.25rem 0.75rem;
+  border-radius: var(--radius-sm);
+  font-size: clamp(0.75rem, 2vw, 0.8rem);
+  font-weight: 500;
+  display: inline-block;
+}
+
+/* Responsive form groups - Stack on mobile */
+@media (max-width: 768px) {
+  /* Override Mantine's Group grow behavior on mobile to stack fields */
+  :global(.mantine-Group-root[data-grow]) {
+    flex-direction: column !important;
+    align-items: stretch !important;
+    gap: var(--space-md) !important;
+  }
+
+  :global(.mantine-Group-root[data-grow] > *) {
+    flex: 1 1 100% !important;
+    max-width: 100% !important;
+    width: 100% !important;
+  }
+
+  /* Ensure proper spacing between stacked fields */
+  :global(.mantine-InputWrapper-root) {
+    width: 100% !important;
+  }
+
+  /* Stack location fields (city, state, country) on mobile */
+  :global(.mantine-Select-root),
+  :global(.mantine-TextInput-root) {
+    width: 100% !important;
+  }
+}

@@ -1,0 +1,91 @@
+/* Empty State */
+.emptyState {
+  text-align: center;
+  padding: clamp(2rem, 5vw, 4rem) clamp(1rem, 3vw, 2rem);
+  color: var(--color-text-secondary);
+}
+
+/* Sponsors List */
+.sponsorsList {
+  position: relative;
+}
+
+/* Note: These tier styles are legacy - actual tier rendering uses DroppableTier component */
+/* Kept for backwards compatibility if needed */
+.tierSection {
+  margin-bottom: clamp(1.5rem, 3vw, 2rem);
+}
+
+.tierSection:last-child {
+  margin-bottom: 0;
+}
+
+/* Legacy Tier Header - see DroppableTier for actual implementation */
+.tierHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: clamp(0.75rem, 2vw, 1rem);
+  margin-bottom: clamp(0.75rem, 2vw, 1rem);
+  padding: clamp(0.5rem, 1.5vw, 0.75rem) clamp(0.75rem, 2vw, 1rem);
+  background: rgba(139, 92, 246, 0.04);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border-radius: var(--radius-md);
+  border: 1px solid rgba(139, 92, 246, 0.08);
+}
+
+.tierTitle {
+  font-size: clamp(1rem, 2.5vw, 1.1rem);
+  font-weight: 600;
+  color: var(--color-text-primary);
+  margin: 0;
+}
+
+.tierBadge {
+  background: rgba(139, 92, 246, 0.08);
+  color: var(--color-primary);
+  border: 1px solid rgba(139, 92, 246, 0.15);
+}
+
+/* Sponsor Cards Container */
+.sponsorCards {
+  position: relative;
+}
+
+/* Drag Overlay Fix */
+:global([data-dnd-kit-drag-overlay]) {
+  /* Ensure proper positioning */
+  pointer-events: none !important;
+  z-index: 9999 !important;
+}
+
+/* Mobile Responsive (< 768px) */
+@media (max-width: 768px) {
+  .emptyState {
+    padding: 2rem 1rem;
+    font-size: 0.9rem;
+  }
+
+  .tierHeader {
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+    text-align: center;
+  }
+}
+
+/* Tablet/Small Laptop (768px - 1024px) */
+@media (min-width: 769px) and (max-width: 1023px) {
+  .tierSection {
+    margin-bottom: 1.75rem;
+  }
+
+  .tierHeader {
+    padding: 0.625rem 0.875rem;
+  }
+
+  .tierTitle {
+    font-size: 1.05rem;
+  }
+}

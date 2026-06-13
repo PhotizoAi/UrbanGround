@@ -1,0 +1,70 @@
+.container {
+  padding: 0;
+}
+
+.speakersGrid {
+  margin-top: clamp(var(--space-lg), 3vw, var(--space-xl));
+}
+
+/* Optional: Group speakers by role/type */
+.speakerSection {
+  composes: section-container from '../../../../styles/design-tokens.css';
+  margin-bottom: clamp(var(--space-xl), 4vw, var(--space-2xl));
+}
+
+.speakerSection:last-child {
+  margin-bottom: 0;
+}
+
+.sectionTitle {
+  font-size: clamp(var(--text-xl), 3vw, 1.5rem);
+  font-weight: 600;
+  color: var(--color-text-primary);
+  letter-spacing: -0.02em;
+  margin-bottom: clamp(var(--space-md), 3vw, var(--space-lg));
+  padding-bottom: var(--space-md);
+  border-bottom: 1px solid var(--primary-alpha-10);
+}
+
+/* No speakers state */
+.noSpeakers {
+  composes: empty-state from '../../../../styles/design-tokens.css';
+  background: var(--color-background-glass);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--primary-alpha-8);
+  box-shadow: var(--shadow-lg);
+}
+
+/* Responsive */
+/* Tablet */
+@media (min-width: 769px) and (max-width: 1023px) {
+  .speakersGrid {
+    margin-top: var(--space-lg);
+  }
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+  .speakersGrid {
+    margin-top: var(--space-md);
+  }
+
+  .speakerSection {
+    padding: clamp(var(--space-md), 3vw, var(--space-lg));
+    margin-bottom: var(--space-lg);
+  }
+
+  .sectionTitle {
+    font-size: var(--text-xl);
+    margin-bottom: var(--space-md);
+  }
+}
+
+/* Small mobile - iPhone SE */
+@media (max-width: 375px) {
+  .speakersGrid {
+    gap: var(--space-md);
+  }
+}

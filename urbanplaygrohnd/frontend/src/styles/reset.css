@@ -1,0 +1,192 @@
+/* Modern CSS Reset - Minimal version that preserves useful defaults */
+
+/* Box sizing rules */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* Remove default margin and padding */
+* {
+  margin: 0;
+  padding: 0;
+}
+
+/* Prevent font size inflation */
+html {
+  -moz-text-size-adjust: none;
+  -webkit-text-size-adjust: none;
+  text-size-adjust: none;
+}
+
+/* Set core body defaults */
+body {
+  min-height: 100vh;
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  /* Set brand background color to prevent jarring flashes during route transitions */
+  background-color: #fbfaff; /* Very light purple, almost white - from design system */
+}
+
+/* Remove list styles on ul, ol elements with a list role */
+ul[role='list'],
+ol[role='list'] {
+  list-style: none;
+}
+
+/* Set shorter line heights on headings and interactive elements */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+button,
+input,
+label {
+  line-height: 1.1;
+}
+
+/* Balance text wrapping on headings */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  text-wrap: balance;
+}
+
+/* Avoid orphans on paragraphs */
+p {
+  text-wrap: pretty;
+}
+
+/* Make links inherit color unless they have a class */
+a:not([class]) {
+  text-decoration-skip-ink: auto;
+  color: inherit;
+}
+
+/* Make images easier to work with */
+img,
+picture,
+video,
+canvas,
+svg {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+/* Preserve explicit image sizing for logos and Mantine Image components */
+img[width][height],
+[class*='mantine-Image'] img,
+.logo {
+  max-width: none !important;
+}
+
+/* Preserve inline display for icons */
+button svg,
+a svg,
+[role='button'] svg,
+[role='tab'] svg,
+[class*='mantine-'] svg,
+[class*='tabler-icon'] {
+  display: inline-block !important;
+  vertical-align: middle !important;
+  width: auto !important;
+  height: auto !important;
+  max-width: none !important;
+}
+
+/* Fix Mantine Select/Menu checkmarks */
+.mantine-Select-item svg,
+.mantine-Menu-item svg,
+.mantine-MultiSelect-item svg,
+.mantine-Autocomplete-item svg,
+[data-combobox-option] svg {
+  display: inline-block !important;
+  width: 1em !important;
+  height: 1em !important;
+  max-width: none !important;
+  vertical-align: middle !important;
+}
+
+/* Inherit fonts for inputs and buttons */
+input,
+button,
+textarea,
+select {
+  font: inherit;
+  color: inherit;
+}
+
+/* Remove button styling */
+button {
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+/* Make sure textareas without a rows attribute are not tiny */
+textarea:not([rows]) {
+  min-height: 10em;
+}
+
+/* Remove animations for people who've turned them off */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* Focus styles */
+:focus-visible {
+  outline: 2px solid currentColor;
+  outline-offset: 2px;
+}
+
+/* Remove focus outline for mouse users */
+:focus:not(:focus-visible) {
+  outline: none;
+}
+
+/* Preserve Mantine Menu sizing */
+.mantine-Menu-item {
+  line-height: 1.5;
+}
+.mantine-Menu-label {
+  line-height: 1.2;
+}
+
+/* Override disabled cursor for all Mantine components */
+.mantine-Button-root:disabled,
+.mantine-ActionIcon-root:disabled,
+.mantine-Checkbox-input:disabled,
+.mantine-Radio-input:disabled,
+.mantine-Switch-input:disabled,
+.mantine-Select-input:disabled,
+.mantine-TextInput-input:disabled,
+.mantine-Textarea-input:disabled,
+.mantine-NumberInput-input:disabled,
+.mantine-DateInput-input:disabled,
+.mantine-TimeInput-input:disabled,
+.mantine-Slider-root:disabled,
+.mantine-Tabs-tab:disabled,
+.mantine-Pagination-control:disabled,
+.mantine-SegmentedControl-label:disabled,
+.mantine-Chip-label:disabled,
+.mantine-Pill-root:disabled,
+.mantine-CloseButton-root:disabled,
+[data-disabled],
+[data-disabled] * {
+  cursor: default !important;
+}

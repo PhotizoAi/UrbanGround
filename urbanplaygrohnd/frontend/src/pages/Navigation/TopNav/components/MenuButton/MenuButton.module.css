@@ -1,0 +1,129 @@
+.menuButton {
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  /* Fix for CSS reset affecting button size */
+  width: clamp(40px, 8vw, 44px) !important;
+  height: clamp(40px, 8vw, 44px) !important;
+  min-width: clamp(40px, 8vw, 44px) !important;
+  min-height: clamp(40px, 8vw, 44px) !important;
+  padding: var(--space-sm) !important;
+  background: transparent !important;
+  border: none !important;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15) !important;
+  border-radius: var(--radius-md) !important;
+  transition: all 0.2s ease !important;
+}
+
+.menuButton::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(45deg, var(--primary-alpha-10), var(--primary-alpha-15));
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  border-radius: var(--radius-md);
+  pointer-events: none;
+  z-index: 1;
+}
+
+.menuButton:hover {
+  background-color: transparent !important;
+}
+
+.menuButton:hover::before {
+  opacity: 1;
+}
+
+.menuIcon {
+  position: relative;
+  z-index: 1;
+  filter: drop-shadow(0 1px 2px var(--primary-alpha-10));
+  display: block;
+  width: clamp(24px, 5vw, 28px);
+  height: clamp(24px, 5vw, 28px);
+  object-fit: contain;
+}
+
+/* Menu Dropdown Styles */
+.menuDropdown {
+  background: var(--color-background-glass);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--glass-border);
+  box-shadow: var(--shadow-xl);
+  padding: var(--space-sm);
+  min-width: clamp(180px, 40vw, 200px);
+}
+
+.menuArrow {
+  border: 1px solid var(--glass-border);
+  background: var(--color-background-glass);
+}
+
+.menuItem {
+  font-size: clamp(var(--text-xs), 3vw, var(--text-sm));
+  padding: var(--space-sm) var(--space-sm);
+  border-radius: var(--radius-md);
+  color: var(--color-text-primary);
+  font-weight: 500;
+  transition: all 0.2s ease;
+  line-height: 1.4;
+}
+
+.menuItem[data-hovered] {
+  background-color: var(--primary-alpha-8);
+  color: var(--color-primary);
+  transform: translateX(2px);
+}
+
+.menuLabel {
+  font-size: clamp(10px, 2.5vw, 11px);
+  font-weight: 600;
+  color: var(--color-text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  padding: var(--space-sm) var(--space-sm);
+}
+
+.menuDivider {
+  border-color: var(--primary-alpha-8);
+  margin: var(--space-sm) 0;
+}
+
+.logoutItem {
+  color: var(--color-error) !important;
+}
+
+.logoutItem svg {
+  color: var(--color-error) !important;
+}
+
+.logoutItem:hover {
+  background-color: rgba(220, 38, 38, 0.08) !important;
+  color: #b91c1c !important;
+}
+
+/* Responsive menu adjustments */
+@media (max-width: 480px) {
+  .menuDropdown {
+    min-width: 180px; /* Slightly bigger on mobile */
+    padding: var(--space-sm);
+  }
+
+  .menuItem {
+    font-size: var(--text-sm); /* Bigger text on mobile for better touch targets */
+    padding: var(--space-sm) var(--space-md); /* More padding for better touch targets */
+  }
+
+  .menuLabel {
+    font-size: 11px; /* Slightly bigger */
+    padding: var(--space-sm) var(--space-md);
+  }
+}

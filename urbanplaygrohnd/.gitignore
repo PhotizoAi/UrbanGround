@@ -1,0 +1,57 @@
+# Python
+__pycache__/
+*.py[cod]
+venv/
+*.so
+.env
+.env.*
+!.env.example
+!.env.development.example
+
+# Node
+node_modules/
+dist/
+.DS_Store
+*.local
+
+# TypeScript
+*.tsbuildinfo
+
+# ESLint/Prettier cache
+.eslintcache
+.prettiercache
+
+# IDE
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# Docker
+postgres_data/
+
+# Migrations - Track migration files but not __pycache__
+backend/atria/migrations/__pycache__/
+backend/atria/migrations/versions/__pycache__/
+
+#frontend
+frontend/setup-structure.sh
+
+# Debug docs
+docs/docker_debug.md
+
+# Development planning docs
+docs/development-gameplan.md
+docs/next-update.md
+/docs
+
+migrations_backup_*/
+
+# Claude Code documentation
+CLAUDE.md
+.claude/
+
+# Local development scripts
+start-dev-tmux.sh
+stop-dev-tmux.sh
+

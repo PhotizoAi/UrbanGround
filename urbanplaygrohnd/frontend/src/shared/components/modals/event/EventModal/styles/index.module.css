@@ -1,0 +1,153 @@
+/* Modal Content - Glassmorphism */
+.modalContent {
+  background: rgba(255, 255, 255, 1);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  padding: 0;
+  border: 1px solid rgba(255, 255, 255, 0.8);
+  box-shadow: 0 8px 32px rgba(139, 92, 246, 0.08);
+}
+
+/* Modal Header */
+.modalHeader {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: #1e293b;
+  padding: 1.5rem;
+  border-bottom: 1px solid rgba(139, 92, 246, 0.04);
+}
+
+/* Form Label Styling - Matching BasicInfoSection */
+.formLabel {
+  color: var(--color-text-primary, #1e293b) !important;
+  font-weight: 500;
+  font-size: clamp(0.8125rem, 2vw, 0.9rem) !important;
+  margin-bottom: 0.25rem;
+}
+
+/* Form Inputs - Matching BasicInfoSection */
+.formInput input,
+.formSelect input,
+.formTextarea textarea {
+  background: rgba(255, 255, 255, 1) !important;
+  border: 1px solid rgba(139, 92, 246, 0.1) !important;
+  transition: all 0.2s ease;
+  font-size: clamp(0.875rem, 2vw, 0.95rem) !important;
+  min-height: 44px !important; /* Touch-friendly size */
+}
+
+.formInput input:focus,
+.formSelect input:focus,
+.formTextarea textarea:focus {
+  border-color: rgba(139, 92, 246, 0.3) !important;
+  background: rgba(255, 255, 255, 1) !important;
+  box-shadow: 0 0 0 3px rgba(139, 92, 246, 0.05);
+}
+
+/* Disabled state */
+.formInput input:disabled,
+.formSelect input:disabled,
+.formTextarea textarea:disabled {
+  opacity: 0.6;
+  cursor: default;
+  background: rgba(248, 250, 252, 0.5);
+}
+
+/* Textarea specific */
+.formTextarea textarea {
+  min-height: 6em !important;
+  resize: vertical;
+}
+
+/* Select dropdown arrow */
+.formSelect [data-mantine-combobox-target] {
+  color: #8b5cf6;
+}
+
+/* Alert Styling - Matching RoleUpdateModal */
+.warningAlert {
+  background: rgba(252, 211, 77, 0.06) !important;
+  border: 1px solid rgba(252, 211, 77, 0.2) !important;
+  border-radius: 6px;
+  margin-top: 0.75rem;
+}
+
+/* Error Message */
+.errorMessage {
+  color: #dc2626;
+  font-size: 0.875rem;
+  text-align: center;
+  padding: 0.5rem;
+  background: rgba(220, 38, 38, 0.05);
+  border-radius: 4px;
+  margin-top: 0.5rem;
+}
+
+/* Button Group at Modal Bottom */
+.buttonGroup {
+  display: flex;
+  justify-content: flex-end;
+  gap: 0.75rem;
+  margin-top: 1.5rem;
+  padding-top: 1rem;
+}
+
+/* Override Mantine Modal Styles for Glassmorphism */
+:global(.mantine-Modal-overlay) {
+  background: rgba(30, 41, 59, 0.4);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+}
+
+:global(.mantine-Modal-content) {
+  max-height: 90vh;
+  overflow-y: auto;
+}
+
+:global(.mantine-Modal-body) {
+  overflow-y: auto;
+  max-height: calc(90vh - 80px); /* Account for header */
+}
+
+:global(.mantine-Modal-close) {
+  color: #64748b;
+  transition: all 0.2s ease;
+}
+
+:global(.mantine-Modal-close:hover) {
+  color: #8b5cf6;
+  background: rgba(139, 92, 246, 0.08);
+}
+
+/* Override Mantine input focus colors to purple - subtle like other modals */
+:global(.mantine-TextInput-input:focus),
+:global(.mantine-Select-input:focus),
+:global(.mantine-Textarea-input:focus),
+:global(.mantine-DateInput-input:focus) {
+  border-color: rgba(139, 92, 246, 0.3) !important;
+}
+
+:global(.mantine-TextInput-input:focus-visible),
+:global(.mantine-Select-input:focus-visible),
+:global(.mantine-Textarea-input:focus-visible),
+:global(.mantine-DateInput-input:focus-visible) {
+  outline: none !important;
+  border-color: rgba(139, 92, 246, 0.3) !important;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+  .modalContent {
+    padding: 0;
+  }
+
+  .modalHeader {
+    padding: 1rem;
+    font-size: 1.125rem;
+  }
+
+  .buttonGroup {
+    margin-top: 1rem;
+    padding-top: 0.75rem;
+  }
+}

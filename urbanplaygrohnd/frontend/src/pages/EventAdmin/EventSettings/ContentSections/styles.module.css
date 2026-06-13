@@ -1,0 +1,413 @@
+/* Glass sections - additional styling to complement parent */
+.glassSection {
+  /* Parent already provides the glass effect */
+  position: relative;
+}
+
+/* Section titles */
+.subsectionTitle {
+  font-size: clamp(1rem, 2.5vw, 1.1rem);
+  font-weight: 600;
+  color: var(--color-text-primary);
+  margin-bottom: clamp(0.75rem, 2vw, 1rem);
+}
+
+/* Welcome section */
+.welcomeSection {
+  background: var(--primary-alpha-2);
+  padding: clamp(var(--space-md), 3vw, var(--space-lg));
+  border-radius: var(--radius-md);
+  border: 1px solid var(--primary-alpha-4);
+}
+
+/* Form inputs within modals - Subtle and clean */
+.formInput,
+.formTextarea,
+.formSelect {
+  background: rgba(255, 255, 255, 1) !important;
+  border: 1px solid rgba(139, 92, 246, 0.1) !important;
+  transition: all 0.2s ease;
+  font-size: clamp(0.875rem, 2vw, 1rem);
+}
+
+.formInput:focus,
+.formTextarea:focus,
+.formSelect:focus {
+  border-color: rgba(139, 92, 246, 0.3) !important;
+  background: rgba(255, 255, 255, 1) !important;
+}
+
+/* Divider */
+.divider {
+  height: 1px;
+  background: linear-gradient(to right, transparent, var(--primary-alpha-10), transparent);
+  margin: clamp(var(--space-lg), 4vw, var(--space-xl)) 0;
+}
+
+/* Draggable list container */
+.draggableList {
+  position: relative;
+  min-height: 80px;
+  background: rgba(255, 255, 255, 0.3);
+  border-radius: var(--radius-md);
+  padding: clamp(0.375rem, 1.5vw, 0.5rem);
+  border: 2px dashed transparent;
+  transition: all 0.2s ease;
+}
+
+/* Empty state */
+.emptyState {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 70px;
+  color: var(--color-text-muted);
+  font-size: clamp(0.875rem, 2vw, 0.9rem);
+  font-weight: 500;
+  background: rgba(248, 250, 252, 0.5);
+  border-radius: var(--radius-md);
+  border: 2px dashed rgba(148, 163, 184, 0.3);
+}
+
+/* Draggable cards */
+.draggableCard {
+  background: rgba(255, 255, 255, 1);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.9);
+  border-radius: var(--radius-md);
+  margin-bottom: clamp(0.5rem, 2vw, 0.75rem);
+  box-shadow: var(--shadow-sm);
+  transition: all 0.2s ease;
+  user-select: none; /* Prevent text selection during drag */
+  -webkit-user-select: none;
+  overflow: hidden;
+  position: relative;
+}
+
+.draggableCard:last-child {
+  margin-bottom: 0;
+}
+
+.draggableCard:hover {
+  box-shadow: var(--shadow-md);
+  transform: translateY(-1px);
+}
+
+.draggableCard.dragging {
+  opacity: 0.5;
+  box-shadow: var(--shadow-lg);
+  transform: scale(1.02);
+}
+
+/* Card inner structure */
+.cardInner {
+  padding: clamp(0.75rem, 2vw, 1rem);
+  padding-top: clamp(2rem, 3vw, 2.5rem); /* Extra top padding to avoid menu overlap */
+  display: flex;
+  flex-direction: column;
+  gap: clamp(0.25rem, 1vw, 0.5rem);
+}
+
+/* Card top row - menu button in top right */
+.cardTopRow {
+  display: flex !important;
+  justify-content: space-between !important;
+  align-items: flex-start !important;
+  min-height: 20px !important;
+  margin-bottom: clamp(0.125rem, 0.5vw, 0.25rem) !important;
+  padding: 0 !important;
+}
+
+/* Card divider */
+.cardDivider {
+  height: 1px;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(139, 92, 246, 0.1) 20%,
+    rgba(139, 92, 246, 0.1) 80%,
+    transparent
+  );
+  margin: clamp(0.375rem, 1vw, 0.5rem) 0;
+}
+
+/* Card text styles */
+.cardTitle {
+  font-size: clamp(0.9rem, 2vw, 1rem);
+  line-height: 1.4;
+  word-break: break-word;
+  color: var(--color-text-primary);
+  font-weight: 600;
+  text-align: center;
+}
+
+.cardDescription {
+  font-size: clamp(0.8rem, 1.8vw, 0.875rem);
+  line-height: 1.5;
+  word-break: break-word;
+  color: var(--color-text-secondary);
+  text-align: center;
+}
+
+/* Drag handle wrapper for better touch targets */
+.dragHandleWrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 44px; /* Touch-friendly minimum */
+  min-height: 44px;
+  flex-shrink: 0;
+}
+
+/* Drag handle */
+.dragHandle {
+  cursor: move;
+  color: var(--color-text-muted);
+  transition: all 0.2s ease;
+  flex-shrink: 0;
+  width: 44px !important; /* Override Mantine size */
+  height: 44px !important;
+}
+
+.dragHandle:hover {
+  color: var(--color-text-secondary);
+  background: var(--primary-alpha-4) !important;
+}
+
+.dragHandle:active {
+  color: var(--color-primary);
+  background: var(--primary-alpha-8) !important;
+}
+
+/* Desktop card styles */
+.desktopCard {
+  background: rgba(255, 255, 255, 1);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.9);
+  border-radius: var(--radius-md);
+  margin-bottom: clamp(0.5rem, 2vw, 0.75rem);
+  box-shadow: var(--shadow-sm);
+  transition: all 0.2s ease;
+  user-select: none;
+  -webkit-user-select: none;
+}
+
+.desktopCard:hover {
+  box-shadow: var(--shadow-md);
+  transform: translateY(-1px);
+}
+
+.desktopCard.dragging {
+  opacity: 0.5;
+  box-shadow: var(--shadow-lg);
+  transform: scale(1.02);
+}
+
+.desktopCardInner {
+  padding: clamp(0.75rem, 2vw, 1rem);
+}
+
+.desktopCardIcon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.desktopCardTextContent {
+  flex: 1;
+  min-width: 0; /* Prevent text overflow */
+}
+
+.desktopCardTitle {
+  color: var(--color-text-primary);
+  line-height: 1.3;
+  margin-bottom: 0.25rem;
+}
+
+.desktopCardDescription {
+  line-height: 1.4;
+  color: var(--color-text-secondary);
+}
+
+.desktopMenuButton {
+  color: var(--color-text-muted) !important;
+  transition: all 0.2s ease;
+}
+
+.desktopMenuButton:hover {
+  background: var(--primary-alpha-4) !important;
+  color: var(--color-text-secondary) !important;
+}
+
+/* Menu button styling */
+.menuButton {
+  color: var(--color-text-muted) !important;
+  transition: all 0.2s ease;
+  padding: 0 !important;
+  min-width: 28px !important;
+  min-height: 28px !important;
+  width: 28px !important;
+  height: 28px !important;
+  position: absolute !important;
+  top: 0 !important;
+  right: 0 !important;
+  z-index: 10;
+  border-radius: 0 var(--radius-md) 0 var(--radius-md);
+}
+
+.menuButton:hover {
+  background: var(--primary-alpha-4) !important;
+  color: var(--color-text-secondary) !important;
+}
+
+/* Section header styles */
+.sectionHeader {
+  margin-bottom: var(--space-md);
+}
+
+.sectionWrapper {
+  margin-bottom: var(--space-xl);
+}
+
+/* Helper text */
+.helperText {
+  font-size: clamp(0.7rem, 1.8vw, 0.75rem);
+  color: var(--color-text-muted);
+  font-style: italic;
+  margin-top: var(--space-xs);
+}
+
+/* Mobile center styles */
+.mobileCenter {
+  text-align: center;
+  width: 100%;
+}
+
+.centerButton {
+  margin-top: var(--space-md);
+}
+
+/* Drag hint text */
+.dragHint {
+  font-size: clamp(0.625rem, 1.5vw, 0.7rem) !important;
+  color: var(--color-text-muted) !important;
+  font-style: italic !important;
+  text-align: center !important;
+  margin-bottom: clamp(0.5rem, 2vw, 0.75rem) !important;
+  opacity: 0.65 !important;
+  display: block !important;
+}
+
+/* Modal styles */
+.modalContent {
+  background: rgba(255, 255, 255, 1) !important;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.8);
+  box-shadow: 0 8px 32px rgba(139, 92, 246, 0.08);
+}
+
+.modalHeader {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: #1e293b;
+  padding: 1.5rem;
+  border-bottom: 1px solid rgba(139, 92, 246, 0.04);
+}
+
+/* Animation */
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .subsectionTitle {
+    font-size: 1rem;
+    text-align: center;
+  }
+
+  /* Hide drag handle on mobile */
+  .dragHandle {
+    display: none !important;
+  }
+
+  /* Center section header on mobile */
+  .sectionHeader {
+    flex-direction: column !important;
+    align-items: center !important;
+    gap: var(--space-md);
+  }
+
+  .mobileCenter {
+    text-align: center;
+    width: 100%;
+  }
+
+  .centerButton {
+    width: auto;
+    margin-top: var(--space-md);
+  }
+
+  /* Optimize spacing for mobile */
+  .welcomeSection {
+    padding: var(--space-md);
+  }
+
+  .draggableList {
+    padding: 0.375rem;
+  }
+
+  .cardInner {
+    padding: 0.75rem;
+  }
+
+  /* Menu button on mobile */
+  .menuButton {
+    min-width: 36px !important;
+    min-height: 36px !important;
+  }
+
+  /* Adjust card text for mobile */
+  .cardTitle {
+    font-size: 0.875rem;
+  }
+
+  .cardDescription {
+    font-size: 0.8125rem;
+  }
+}
+
+/* Small mobile devices (iPhone SE) */
+@media (max-width: 375px) {
+  .draggableCard {
+    padding: 0.625rem;
+  }
+
+  .cardTitle {
+    font-size: 0.875rem;
+  }
+
+  .cardDescription {
+    font-size: 0.75rem;
+  }
+}
+
+/* Global overrides for Mantine Modal */
+:global(.mantine-Modal-content) {
+  background: rgba(255, 255, 255, 1) !important;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.8);
+  box-shadow: 0 8px 32px rgba(139, 92, 246, 0.08);
+}
+
+:global(.mantine-Modal-header) {
+  background: transparent;
+  border-bottom: 1px solid rgba(139, 92, 246, 0.04);
+}
+
+:global(.mantine-Modal-overlay) {
+  background: rgba(30, 41, 59, 0.4);
+  backdrop-filter: blur(4px);
+}

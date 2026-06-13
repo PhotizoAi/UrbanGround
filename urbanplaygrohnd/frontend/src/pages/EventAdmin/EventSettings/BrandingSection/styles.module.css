@@ -1,0 +1,237 @@
+/* Form Sections */
+.brandingSection {
+  position: relative;
+}
+
+.heroSection {
+  position: relative;
+}
+
+/* Form Label Styling */
+.formLabel {
+  color: var(--color-text-primary) !important;
+  font-weight: 500;
+  font-size: clamp(0.8125rem, 2vw, 0.9rem) !important;
+  margin-bottom: 0.25rem;
+}
+
+.formDescription {
+  color: var(--color-text-secondary);
+  font-size: clamp(0.75rem, 2vw, 0.85rem);
+  margin-top: 0.25rem;
+}
+
+/* Form inputs within modals - Subtle and clean */
+.formInput {
+  background: rgba(255, 255, 255, 1) !important;
+  border: 1px solid rgba(139, 92, 246, 0.1) !important;
+  transition: all 0.2s ease;
+  font-size: clamp(0.875rem, 2vw, 0.95rem) !important;
+  min-height: 44px !important;
+}
+
+.formInput:focus {
+  border-color: rgba(139, 92, 246, 0.3) !important;
+  background: rgba(255, 255, 255, 1) !important;
+}
+
+/* Color Input Styling */
+.colorInput {
+  background: rgba(255, 255, 255, 1) !important;
+  border: 1px solid rgba(139, 92, 246, 0.1) !important;
+  transition: all 0.2s ease;
+  min-height: 44px !important;
+}
+
+.colorInput:focus {
+  border-color: rgba(139, 92, 246, 0.3) !important;
+  background: rgba(255, 255, 255, 1) !important;
+}
+
+/* Subsection Title */
+.subsectionTitle {
+  font-size: 1rem;
+  font-weight: 600;
+  color: #1e293b;
+  margin-bottom: 1rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 1px solid rgba(139, 92, 246, 0.08);
+}
+
+/* Logo Section */
+.logoSection {
+  margin-top: 1.5rem;
+}
+
+/* Image Preview Cards */
+.imagePreviewCard {
+  background: rgba(139, 92, 246, 0.02);
+  border: 1px solid rgba(139, 92, 246, 0.08);
+  border-radius: 6px;
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+}
+
+.imagePreviewWrapper {
+  width: 150px;
+  height: 150px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(255, 255, 255, 0.8);
+  border-radius: 6px;
+  border: 1px solid rgba(139, 92, 246, 0.1);
+  overflow: hidden;
+}
+
+/* Hero Image Preview */
+.heroImagePreviewCard {
+  background: rgba(139, 92, 246, 0.02);
+  border: 1px solid rgba(139, 92, 246, 0.08);
+  border-radius: 6px;
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.heroImagePreviewWrapper {
+  width: 100%;
+  max-width: 600px;
+  overflow: hidden;
+  border-radius: 6px;
+  background: rgba(255, 255, 255, 0.8);
+  border: 1px solid rgba(139, 92, 246, 0.1);
+}
+
+/* Section Divider */
+.sectionDivider {
+  border-color: rgba(139, 92, 246, 0.08);
+  margin: 2.5rem 0;
+}
+
+/* Hero Tabs Styling */
+.heroTabs {
+  margin-top: 1rem;
+}
+
+.heroTabsList {
+  background: rgba(139, 92, 246, 0.04);
+  backdrop-filter: blur(10px);
+  border-radius: 6px;
+  padding: 0.25rem;
+  margin-bottom: 1rem;
+}
+
+.heroTab {
+  padding: 0.75rem 1.25rem;
+  transition: all 0.2s ease;
+  color: #64748b;
+  font-weight: 500;
+  border: none;
+  border-bottom: 2px solid transparent;
+  background: transparent;
+  border-radius: 4px 4px 0 0;
+  font-size: 0.9rem;
+  position: relative;
+}
+
+.heroTab:hover {
+  color: #8b5cf6;
+  background: rgba(139, 92, 246, 0.06);
+}
+
+.heroTab[data-active] {
+  color: #8b5cf6;
+  border-bottom-color: #8b5cf6;
+  background: rgba(255, 255, 255, 0.8);
+}
+
+.heroTabPanel {
+  padding-top: 1rem;
+}
+
+/* Upload Placeholders */
+.uploadPlaceholder {
+  background: rgba(139, 92, 246, 0.04);
+  border: 2px dashed rgba(139, 92, 246, 0.2);
+  border-radius: 6px;
+  padding: 2rem;
+  text-align: center;
+  transition: all 0.2s ease;
+  cursor: pointer;
+}
+
+.uploadPlaceholder:hover {
+  background: rgba(139, 92, 246, 0.06);
+  border-color: rgba(139, 92, 246, 0.3);
+}
+
+/* Color Swatches */
+.colorSwatchWrapper {
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+  margin-top: 0.5rem;
+}
+
+/* Tab text switching for mobile */
+.tabTextFull {
+  display: inline;
+}
+
+.tabTextShort {
+  display: none;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .imagePreviewWrapper {
+    width: 120px;
+    height: 120px;
+  }
+
+  .heroImagePreviewWrapper {
+    max-width: 100%;
+  }
+
+  .heroTab {
+    font-size: 0.85rem;
+    padding: 0.5rem 0.75rem;
+  }
+
+  /* Show short text on mobile */
+  .tabTextFull {
+    display: none;
+  }
+
+  .tabTextShort {
+    display: inline;
+  }
+
+  /* Override Mantine's Group grow behavior on mobile to stack fields */
+  :global(.mantine-Group-root[data-grow]) {
+    flex-direction: column !important;
+    align-items: stretch !important;
+    gap: var(--space-md) !important;
+  }
+
+  :global(.mantine-Group-root[data-grow] > *) {
+    flex: 1 1 100% !important;
+    max-width: 100% !important;
+    width: 100% !important;
+  }
+
+  /* Ensure proper spacing between stacked fields */
+  :global(.mantine-InputWrapper-root) {
+    width: 100% !important;
+  }
+
+  /* Optimize tab list for mobile */
+  .heroTabsList {
+    padding: 0.125rem;
+  }
+}

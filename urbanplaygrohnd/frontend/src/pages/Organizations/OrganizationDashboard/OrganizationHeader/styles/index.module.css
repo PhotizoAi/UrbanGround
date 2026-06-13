@@ -1,0 +1,346 @@
+/* Header Section */
+.headerSection {
+  background: rgba(255, 255, 255, 0.8);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border-radius: 8px;
+  padding: 2rem;
+  border: 1px solid rgba(255, 255, 255, 0.8);
+  box-shadow: 0 4px 20px rgba(139, 92, 246, 0.04);
+  position: relative;
+  z-index: 10;
+  margin-bottom: 2rem;
+}
+
+.headerContent {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 2rem;
+  flex-wrap: wrap;
+}
+
+/* Organization Info */
+.organizationInfo {
+  display: flex;
+  align-items: flex-start;
+  gap: 1.5rem;
+  flex: 1;
+}
+
+.iconWrapper {
+  width: 80px;
+  height: 80px;
+  background: linear-gradient(135deg, #8b5cf6, #a855f7);
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  flex-shrink: 0;
+  box-shadow: 0 4px 12px rgba(139, 92, 246, 0.15);
+}
+
+.titleArea {
+  flex: 1;
+}
+
+.organizationName {
+  font-size: 2rem;
+  font-weight: 600;
+  color: #1e293b;
+  margin: 0;
+  line-height: 1.2;
+}
+
+.editButton {
+  opacity: 0;
+  transition: all 0.2s ease;
+  color: #94a3b8 !important;
+}
+
+.headerSection:hover .editButton {
+  opacity: 1;
+}
+
+.editButton:hover {
+  color: #8b5cf6 !important;
+  background: rgba(139, 92, 246, 0.08) !important;
+}
+
+/* Edit Container - Desktop (icon only) */
+.editContainer {
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+  color: #94a3b8;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  opacity: 0;
+  padding: 0.25rem;
+  border-radius: 4px;
+}
+
+.headerSection:hover .editContainer {
+  opacity: 1;
+}
+
+.editContainer:hover {
+  color: #8b5cf6;
+  background: rgba(139, 92, 246, 0.08);
+}
+
+/* Hide edit text on desktop */
+.editText {
+  display: none;
+}
+
+/* Editing Container */
+.editingContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.75rem;
+  width: 100%;
+}
+
+.editButtons {
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+}
+
+/* Save Button (Check) */
+.saveButton {
+  background: rgba(34, 197, 94, 0.1) !important;
+  color: #16a34a !important;
+  border: 1px solid rgba(34, 197, 94, 0.2) !important;
+  transition: all 0.2s ease;
+}
+
+.saveButton:hover {
+  background: rgba(34, 197, 94, 0.15) !important;
+  border-color: rgba(34, 197, 94, 0.3) !important;
+}
+
+/* Cancel Button (X) */
+.cancelButton {
+  color: #94a3b8 !important;
+  transition: all 0.2s ease;
+}
+
+.cancelButton:hover {
+  color: #ef4444 !important;
+  background: rgba(239, 68, 68, 0.08) !important;
+}
+
+.nameInput input {
+  font-size: 2rem;
+  font-weight: 600;
+  padding: 0.25rem 0.5rem;
+  background: rgba(255, 255, 255, 0.9);
+  border: 2px solid rgba(139, 92, 246, 0.3);
+}
+
+.nameInput input:focus {
+  border-color: rgba(139, 92, 246, 0.5);
+}
+
+/* Metadata */
+.metadata {
+  display: flex;
+  gap: 0.75rem;
+  margin-top: 0.75rem;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.memberBadge {
+  background: rgba(139, 92, 246, 0.08) !important;
+  color: #8b5cf6 !important;
+  border: none !important;
+  font-weight: 500 !important;
+  padding: 0.375rem 0.75rem !important;
+  border-radius: 4px !important;
+}
+
+.roleBadge {
+  text-transform: uppercase !important;
+  font-weight: 600 !important;
+  letter-spacing: 0.05em !important;
+  padding: 0.375rem 0.75rem !important;
+  border-radius: 4px !important;
+}
+
+/* Actions */
+.headerActions {
+  display: flex;
+  gap: 0.75rem;
+  align-items: center;
+}
+
+/* Settings Button */
+.settingsButton {
+  color: #94a3b8 !important;
+  transition: all 0.2s ease;
+}
+
+.settingsButton:hover {
+  color: #8b5cf6 !important;
+  background: rgba(139, 92, 246, 0.08) !important;
+}
+
+/* Description */
+.description {
+  margin-top: 1rem;
+  line-height: 1.6;
+  color: #64748b;
+  max-width: 800px;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .headerContent {
+    flex-direction: column;
+  }
+
+  .organizationInfo {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    width: 100%;
+  }
+
+  .titleArea {
+    width: 100%;
+  }
+
+  .organizationName {
+    font-size: 1.5rem !important;
+    text-align: center !important;
+    width: 100% !important;
+    margin-bottom: 0 !important;
+  }
+
+  /* Override Mantine Group on mobile - stack vertically */
+  .titleArea :global(.mantine-Group-root) {
+    flex-direction: column !important;
+    align-items: center !important;
+    width: 100% !important;
+    margin-bottom: 0 !important;
+    gap: 0.25rem !important;
+  }
+
+  /* Make edit button smaller and centered below name on mobile */
+  .editButton {
+    opacity: 0.6 !important;
+    transform: scale(0.85) !important;
+  }
+
+  /* Mobile edit container - show text and always visible */
+  .editContainer {
+    opacity: 0.6 !important;
+    transform: scale(0.85) !important;
+    justify-content: center !important;
+  }
+
+  /* Show edit text on mobile */
+  .editText {
+    display: block !important;
+    color: var(--color-text-muted) !important;
+    font-size: 0.75rem !important;
+    font-weight: 400 !important;
+  }
+
+  .metadata {
+    justify-content: center;
+    margin-top: var(--space-sm) !important;
+  }
+
+  .headerActions {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .description {
+    text-align: center;
+    margin: 1rem auto 0;
+  }
+
+  .settingsContainer {
+    padding-top: 1rem;
+  }
+}
+
+/* Settings Section */
+.settingsContainer {
+  margin-top: var(--space-lg);
+  padding-top: var(--space-lg);
+  border-top: 1px solid var(--primary-alpha-10);
+}
+
+/* Settings Card - Individual setting panels */
+.settingsCard {
+  background: rgba(255, 255, 255, 0.5) !important;
+  border: 1px solid var(--primary-alpha-15) !important;
+  border-radius: var(--radius-lg) !important;
+  padding: var(--space-lg) !important;
+  margin-bottom: var(--space-md);
+  transition: all 0.2s ease;
+}
+
+.settingsCard:last-child {
+  margin-bottom: 0;
+}
+
+.settingsCard:hover {
+  background: rgba(255, 255, 255, 0.7) !important;
+  box-shadow: var(--shadow-sm);
+}
+
+/* Settings Icon */
+.settingsIcon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  background: var(--primary-alpha-8);
+  border-radius: var(--radius-md);
+  color: var(--color-primary);
+  flex-shrink: 0;
+}
+
+/* Setting Label */
+.settingLabel {
+  font-weight: 600;
+  font-size: var(--text-sm);
+  color: var(--color-text-primary);
+  line-height: 1.3;
+}
+
+/* Setting Value (current value display) */
+.settingValue {
+  font-size: var(--text-sm);
+  color: var(--color-text-secondary);
+  margin-top: var(--space-xs);
+  line-height: 1.4;
+}
+
+/* Setting Hint Text */
+.settingHint {
+  color: var(--color-text-muted);
+  line-height: 1.4;
+}
+
+/* Cancel Button - In header row at far right */
+.cancelButton {
+  color: var(--color-text-muted) !important;
+  transition: all 0.2s ease;
+  margin-left: auto !important; /* Push to far right */
+}
+
+.cancelButton:hover {
+  color: var(--color-text-secondary) !important;
+  background: var(--primary-alpha-4) !important;
+}

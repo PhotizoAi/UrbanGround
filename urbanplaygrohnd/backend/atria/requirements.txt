@@ -1,0 +1,48 @@
+# Core Flask
+flask
+flask-restful
+flask-migrate
+flask-sqlalchemy
+flask-jwt-extended
+flask-socketio
+flask-cors
+gunicorn
+eventlet
+
+#scheduling
+apscheduler
+
+
+# Schema & Serialization
+marshmallow>=3
+flask-marshmallow
+marshmallow-sqlalchemy
+
+# API Documentation
+flask-smorest
+apispec[yaml]
+apispec-webframeworks
+
+# Database
+psycopg2-binary
+
+# Utilities
+python-dotenv
+passlib
+python-slugify
+requests
+cryptography
+
+# Object Storage
+minio
+Pillow
+
+# Testing
+tox
+
+# Redis support for Socket.IO clustering and caching
+redis>=4.5.0
+hiredis>=2.2.0  # C parser for better performance
+
+# Not currently using
+# celery[redis]>=5.0.0

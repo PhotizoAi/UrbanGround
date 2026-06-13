@@ -1,0 +1,136 @@
+/* Modal Content - Glassmorphism */
+.modalContent {
+  background: rgba(255, 255, 255, 1);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  padding: 0;
+  border: 1px solid rgba(255, 255, 255, 0.8);
+  box-shadow: 0 8px 32px rgba(139, 92, 246, 0.08);
+  max-height: 90vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Modal Header */
+.modalHeader {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: #1e293b;
+  padding: 1.5rem;
+  border-bottom: 1px solid rgba(139, 92, 246, 0.04);
+  flex-shrink: 0;
+}
+
+/* Modal Body - Make it scrollable */
+.modalBody {
+  overflow-y: auto;
+  overflow-x: hidden;
+  max-height: calc(90vh - 80px); /* Subtract header height */
+  flex: 1;
+}
+
+/* Section Titles */
+.sectionTitle {
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: #8b5cf6;
+  margin-top: 1rem;
+  margin-bottom: 0.5rem;
+  padding-bottom: 0.25rem;
+  border-bottom: 1px solid rgba(139, 92, 246, 0.08);
+  text-transform: uppercase;
+  letter-spacing: 0.025em;
+}
+
+.sectionTitle:first-of-type {
+  margin-top: 0;
+}
+
+/* Form inputs within modals - Subtle and clean */
+.formInput,
+.formSelect,
+.formTextarea,
+.shortDescriptionTextarea,
+.formTimeInput {
+  background: rgba(255, 255, 255, 1) !important;
+  border: 1px solid rgba(139, 92, 246, 0.1) !important;
+  transition: all 0.2s ease;
+}
+
+.formInput:focus,
+.formSelect:focus,
+.formTextarea:focus,
+.shortDescriptionTextarea:focus,
+.formTimeInput:focus {
+  border-color: rgba(139, 92, 246, 0.3) !important;
+  background: rgba(255, 255, 255, 1) !important;
+}
+
+/* Short description textarea - compact size */
+.shortDescriptionTextarea {
+  min-height: 3.5em !important;
+  height: 3.5em !important;
+  resize: vertical;
+}
+
+/* Full description textarea - keep default larger size */
+.formTextarea {
+  min-height: 8em !important;
+  resize: vertical;
+}
+
+/* Input Labels */
+.inputLabel {
+  font-weight: 500;
+  color: #475569;
+  margin-bottom: 0.5rem;
+}
+
+/* Helper Text */
+.helperText {
+  font-size: 0.875rem;
+  color: #64748b;
+  margin-top: 0.25rem;
+}
+
+/* Button Group at Modal Bottom */
+.buttonGroup {
+  display: flex;
+  justify-content: flex-end;
+  gap: 0.75rem;
+  margin-top: 1.5rem;
+  padding-top: 1rem;
+}
+
+/* Time Input Group */
+.timeInputGroup {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+  .modalContent {
+    padding: 0;
+    max-height: 95vh; /* More height on mobile */
+  }
+
+  .modalHeader {
+    padding: 1rem;
+    font-size: 1.125rem;
+  }
+
+  .modalBody {
+    max-height: calc(95vh - 60px); /* Adjust for smaller header */
+  }
+
+  .buttonGroup {
+    margin-top: 1rem;
+    padding-top: 0.75rem;
+  }
+
+  .timeInputGroup {
+    grid-template-columns: 1fr;
+  }
+}
