@@ -2,15 +2,13 @@
 
 [build]
   base = "urbanplaygrohnd/frontend"
-  command = "npm run build"
+  command = "npm run build:netlify"
   publish = "dist"
 
 # Environment variables
 [build.environment]
   NODE_VERSION = "20"
   NODE_ENV = "production"
-  # Disable prerender on Netlify to avoid localhost issues
-  SKIP_PRERENDER = "false"
 
 # Redirects for SPA routing
 [[redirects]]
